@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/8 | JStar&#39;s Blog</title>
+  <title>Tag: 拦截器 | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="JStar's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/08/index.html">
+<meta property="og:url" content="http://shinejstar.github.io/tags/拦截器/index.html">
 <meta property="og:site_name" content="JStar's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JStar's Blog">
@@ -36,8 +36,8 @@
           animate: true,
           isHome: false,
           isPost: false,
-          isArchive: true,
-          isTag: false,
+          isArchive: false,
+          isTag: true,
           isCategory: false,
           open_in_new: false
       }
@@ -60,6 +60,13 @@
         </hgroup>
 
         
+        <p class="header-subtitle">小标题</p>
+        
+        
+            <form>
+                <!-- <input type="text" class="st-default-search-input search" id="search" placeholder=" Search..."> -->
+				<input type="text" class="st-default-search-input search" id="search" placeholder=" Search..." autocomplete="off" autocorrect="off" autocapitalize="off">
+            </form>
         
         
             <div id="switch-btn" class="switch-btn">
@@ -137,7 +144,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/拦截器/" style="font-size: 10px;">拦截器</a>
                     </div>
                 </section>
                 
@@ -193,6 +200,8 @@
               <h1 class="header-author"><a href="/" title="回到主页">JStar</a></h1>
             </hgroup>
             
+            <p class="header-subtitle">小标题</p>
+            
             <nav class="header-menu">
                 <ul>
                 
@@ -240,14 +249,14 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
-              <a href="/2016/08/29/hello-world/" class="archive-article-date">
-      <time datetime="2016-08-29T04:08:56.160Z" itemprop="datePublished">08-29</time>
+              <a href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/" class="archive-article-date">
+      <time datetime="2016-06-10T10:29:42.000Z" itemprop="datePublished">06-10</time>
 </a>
         </div>
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/29/hello-world/">Hello World</a>
+      <a class="archive-article-title" href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/">SpringMVC拦截器（资源和权限管理）</a>
     </h1>
   
 
@@ -255,6 +264,10 @@
           
 
           
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/拦截器/">拦截器</a></li></ul>
+    </div>
+
         </div>
         <div class="clearfix"></div>
     </header>
@@ -278,26 +291,6 @@
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
             </div>
         </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >海贼到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
         
     </div>
 </footer>
@@ -372,6 +365,23 @@
     });
 </script>
 
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
 
   </div>
 </body>
