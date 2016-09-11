@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SpringMVC拦截器（资源和权限管理） | JStar&#39;s Blog</title>
+  <title>Nginx系列-301重定向设置的两种方法 | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringMVC 中的Interceptor 拦截器也是相当重要和相当有用的，它的主要作用是拦截用户的请求并进行相应的处理。比如通过它来进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。">
+  <meta name="description" content="重定向说直白点，就是通过方法将各种网络请求重新定个方向转到其它位置，也就是通常说的，网页跳转。做网站优化，我们基本知道url标准化需要采用301重定向。那么如何设置和制作301重定向呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringMVC拦截器（资源和权限管理）">
-<meta property="og:url" content="http://shinejstar.github.io/2016/06/10/SpringMVC拦截器（资源和权限管理）/index.html">
+<meta property="og:title" content="Nginx系列-301重定向设置的两种方法">
+<meta property="og:url" content="http://shinejstar.github.io/2016/08/13/Nginx系列-301重定向设置的两种方法/index.html">
 <meta property="og:site_name" content="JStar's Blog">
-<meta property="og:description" content="SpringMVC 中的Interceptor 拦截器也是相当重要和相当有用的，它的主要作用是拦截用户的请求并进行相应的处理。比如通过它来进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。">
-<meta property="og:image" content="http://i.imgur.com/xfFf22l.png">
-<meta property="og:updated_time" content="2016-09-11T04:56:55.249Z">
+<meta property="og:description" content="重定向说直白点，就是通过方法将各种网络请求重新定个方向转到其它位置，也就是通常说的，网页跳转。做网站优化，我们基本知道url标准化需要采用301重定向。那么如何设置和制作301重定向呢？">
+<meta property="og:updated_time" content="2016-09-11T09:20:01.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringMVC拦截器（资源和权限管理）">
-<meta name="twitter:description" content="SpringMVC 中的Interceptor 拦截器也是相当重要和相当有用的，它的主要作用是拦截用户的请求并进行相应的处理。比如通过它来进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。">
-<meta name="twitter:image" content="http://i.imgur.com/xfFf22l.png">
+<meta name="twitter:title" content="Nginx系列-301重定向设置的两种方法">
+<meta name="twitter:description" content="重定向说直白点，就是通过方法将各种网络请求重新定个方向转到其它位置，也就是通常说的，网页跳转。做网站优化，我们基本知道url标准化需要采用301重定向。那么如何设置和制作301重定向呢？">
   
     <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
   
@@ -238,11 +236,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-SpringMVC拦截器（资源和权限管理）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Nginx系列-301重定向设置的两种方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/" class="article-date">
-      <time datetime="2016-06-10T10:29:42.000Z" itemprop="datePublished">2016-06-10</time>
+      <a href="/2016/08/13/Nginx系列-301重定向设置的两种方法/" class="article-date">
+      <time datetime="2016-08-13T02:03:43.000Z" itemprop="datePublished">2016-08-13</time>
 </a>
     </div>
   
@@ -255,7 +253,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SpringMVC拦截器（资源和权限管理）
+      Nginx系列-301重定向设置的两种方法
     </h1>
   
 
@@ -266,7 +264,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringMVC/">SpringMVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/拦截器/">拦截器</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -276,145 +274,38 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>　　SpringMVC 中的Interceptor 拦截器也是相当重要和相当有用的，它的主要作用是拦截用户的请求并进行相应的处理。比如通过它来进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。</p>
+        <p>　　重定向说直白点，就是通过方法将各种网络请求重新定个方向转到其它位置，也就是通常说的，网页跳转。做网站优化，我们基本知道url标准化需要采用301重定向。那么如何设置和制作301重定向呢？</p>
 <a id="more"></a>
-<h4 id="1-DispatcherServlet"><a href="#1-DispatcherServlet" class="headerlink" title="1.DispatcherServlet"></a>1.DispatcherServlet</h4><p>　　SpringMVC具有统一的入口DispatcherServlet，所有的请求都通过DispatcherServlet。<br>　　DispatcherServlet是前置控制器，配置在web.xml文件中的。拦截匹配的请求，Servlet拦截匹配规则要自已定义，把拦截下来的请求，依据某某规则分发到目标Controller来处理。  所以我们现在web.xml中加入以下配置：</p>
-<pre><code>&lt;!-- 初始化 DispatcherServlet时，该框架在 web应用程序WEB-INF目录中寻找一个名为[servlet-名称]-servlet.xml的文件，  
-并在那里定义相关的Beans，重写在全局中定义的任何Beans --&gt;  
-&lt;servlet&gt;  
- &lt;servlet-name&gt;springMybatis&lt;/servlet-name&gt;  
- &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;  
- &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;  
-&lt;/servlet&gt;  
-&lt;servlet-mapping&gt;  
- &lt;servlet-name&gt;springMybatis&lt;/servlet-name&gt;  
- &lt;!-- 所有的的请求，都会被DispatcherServlet处理 --&gt;  
- &lt;url-pattern&gt;/&lt;/url-pattern&gt;  
-&lt;/servlet-mapping&gt;  
-</code></pre><h4 id="2-静态资源不拦截"><a href="#2-静态资源不拦截" class="headerlink" title="2.静态资源不拦截"></a>2.静态资源不拦截</h4><p>　　如果只配置拦截类似于*.do格式的url，则对静态资源的访问是没有问题的，但是如果配置拦截了所有的请求（如我们上面配置的“/”），就会造成js文件、css文件、图片文件等静态资源无法访问。<br>　　一般实现拦截器主要是为了权限管理，主要是拦截一些url请求，所以不对静态资源进行拦截。要过滤掉静态资源一般有两种方式，<br>　　第一种是采用<mvc:default-servlet-handler>，（一般Web应用服务器默认的Servlet名称是”default”，所以这里我们激活Tomcat的defaultServlet来处理静态文件，在web.xml里配置如下代码即可：）</mvc:default-servlet-handler></p>
-<pre><code>&lt;!--　该servlet为tomcat,jetty等容器提供,将静态资源映射从/改为/static/目录，如原来访问　http://localhost/foo.css　,现在http://localhost/static/foo.css　--&gt;  
-&lt;!-- 不拦截静态文件 --&gt;  
-    &lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;default&lt;/servlet-name&gt;  
-    &lt;url-pattern&gt;/js/*&lt;/url-pattern&gt;  
-    &lt;url-pattern&gt;/css/*&lt;/url-pattern&gt;  
-    &lt;url-pattern&gt;/images/*&lt;/url-pattern&gt;  
-    &lt;url-pattern&gt;/fonts/*&lt;/url-pattern&gt;  
-&lt;/servlet-mapping&gt;  
-</code></pre><p>　　Tomcat, Jetty, JBoss, and GlassFish  默认 Servlet的名字 – “default”<br>　　Resin 默认 Servlet的名字 – “resin-file”<br>　　WebLogic 默认 Servlet的名字  – “FileServlet”<br>　　WebSphere  默认 Servlet的名字 – “SimpleFileServlet”</p>
-<p>　　如果你所有的Web应用服务器的默认Servlet名称不是”default”，则需要通过default-servlet-name属性显示指定：</p>
-<pre><code>&lt;mvc:default-servlet-handler default-servlet-name=&quot;所使用的Web服务器默认使用的Servlet名称&quot; /&gt;
-</code></pre><p>　　第二种是采用<mvc:resources>，在springmvc的配置文件中加入以下代码：</mvc:resources></p>
-<pre><code>&lt;mvc:resources mapping=&quot;/js/**&quot; location=&quot;/static_resources/javascript/&quot;/&gt;    
-&lt;mvc:resources mapping=&quot;/styles/**&quot; location=&quot;/static_resources/css/&quot;/&gt;    
-&lt;mvc:resources mapping=&quot;/images/**&quot; location=&quot;/static_resources/images/&quot;/&gt; 
-</code></pre><h4 id="3-自定义拦截器"><a href="#3-自定义拦截器" class="headerlink" title="3.自定义拦截器"></a>3.自定义拦截器</h4><p>　　SpringMVC的拦截器HandlerInterceptorAdapter对应提供了三个preHandle，postHandle，afterCompletion方法。preHandle在业务处理器处理请求之前被调用，<br>　　postHandle在业务处理器处理请求执行完成后,生成视图之前执行，afterCompletion在DispatcherServlet完全处理完请求后被调用,可用于清理资源等 。所以要想实现自己的权限管理逻辑，需要继承HandlerInterceptorAdapter并重写其三个方法。<br>　　首先在springmvc.xml中加入自己定义的拦截器我的实现逻辑CommonInterceptor，</p>
-<pre><code>&lt;!--配置拦截器, 多个拦截器,顺序执行 --&gt;  
-&lt;mvc:interceptors&gt;    
-    &lt;mvc:interceptor&gt;    
-        &lt;!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller --&gt;  
-        &lt;mvc:mapping path=&quot;/&quot; /&gt;  
-        &lt;mvc:mapping path=&quot;/user/**&quot; /&gt;  
-        &lt;mvc:mapping path=&quot;/test/**&quot; /&gt;  
-        &lt;bean class=&quot;com.alibaba.interceptor.CommonInterceptor&quot;&gt;&lt;/bean&gt;    
-    &lt;/mvc:interceptor&gt;  
-    &lt;!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 --&gt;  
-&lt;/mvc:interceptors&gt;  
-</code></pre><p>　　我的拦截逻辑是“在未登录前，任何访问url都跳转到login页面；登录成功后跳转至先前的url”，具体代码如下：</p>
-<pre><code>package com.alibaba.interceptor;  
-
-import javax.servlet.http.HttpServletRequest;  
-import javax.servlet.http.HttpServletResponse;  
-
-import org.slf4j.Logger;  
-import org.slf4j.LoggerFactory;  
-import org.springframework.web.servlet.ModelAndView;  
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  
-
-import com.alibaba.util.RequestUtil;  
-
-
-/** 
- * @author tfj 
- * 2014-8-1 
- */  
-public class CommonInterceptor extends HandlerInterceptorAdapter{  
-    private final Logger log = LoggerFactory.getLogger(CommonInterceptor.class);  
-    public static final String LAST_PAGE = &quot;com.alibaba.lastPage&quot;;  
-    /* 
-     * 利用正则映射到需要拦截的路径     
-
-    private String mappingURL; 
-
-    public void setMappingURL(String mappingURL) {     
-               this.mappingURL = mappingURL;     
-    }    
-  */  
-    /**  
-     * 在业务处理器处理请求之前被调用  
-     * 如果返回false  
-     *     从当前的拦截器往回执行所有拦截器的afterCompletion(),再退出拦截器链 
-     * 如果返回true  
-     *    执行下一个拦截器,直到所有的拦截器都执行完毕  
-     *    再执行被拦截的Controller  
-     *    然后进入拦截器链,  
-     *    从最后一个拦截器往回执行所有的postHandle()  
-     *    接着再从最后一个拦截器往回执行所有的afterCompletion()  
-     */    
-    @Override    
-    public boolean preHandle(HttpServletRequest request,    
-            HttpServletResponse response, Object handler) throws Exception {    
-        if (&quot;GET&quot;.equalsIgnoreCase(request.getMethod())) {  
-            RequestUtil.saveRequest();  
-        }  
-        log.info(&quot;==============执行顺序: 1、preHandle================&quot;);    
-        String requestUri = request.getRequestURI();  
-        String contextPath = request.getContextPath();  
-        String url = requestUri.substring(contextPath.length());  
-
-        log.info(&quot;requestUri:&quot;+requestUri);    
-        log.info(&quot;contextPath:&quot;+contextPath);    
-        log.info(&quot;url:&quot;+url);    
-
-        String username =  (String)request.getSession().getAttribute(&quot;user&quot;);   
-        if(username == null){  
-            log.info(&quot;Interceptor：跳转到login页面！&quot;);  
-            request.getRequestDispatcher(&quot;/WEB-INF/jsp/login.jsp&quot;).forward(request, response);  
-            return false;  
-        }else  
-            return true;     
-    }    
-
-    /** 
-     * 在业务处理器处理请求执行完成后,生成视图之前执行的动作    
-     * 可在modelAndView中加入数据，比如当前时间 
-     */  
-    @Override    
-    public void postHandle(HttpServletRequest request,    
-            HttpServletResponse response, Object handler,    
-            ModelAndView modelAndView) throws Exception {     
-        log.info(&quot;==============执行顺序: 2、postHandle================&quot;);    
-        if(modelAndView != null){  //加入当前时间    
-            modelAndView.addObject(&quot;var&quot;, &quot;测试postHandle&quot;);    
-        }    
-    }    
-
-    /**  
-     * 在DispatcherServlet完全处理完请求后被调用,可用于清理资源等   
-     *   
-     * 当有拦截器抛出异常时,会从当前拦截器往回执行所有的拦截器的afterCompletion()  
-     */    
-    @Override    
-    public void afterCompletion(HttpServletRequest request,    
-            HttpServletResponse response, Object handler, Exception ex)    
-            throws Exception {    
-        log.info(&quot;==============执行顺序: 3、afterCompletion================&quot;);    
-    }    
-
-}    
-</code></pre><p>　　注：上述代码里我写了一个RequestUtil,主要实现获取当前Request、Session对象，保存和加密页面，取出等功能。<br>至此，拦截器已经实现了，效果如图：<br>我直接访问/test/hello，会被拦截</p>
-<p>登录成功后会跳转至/test/hello对应的页面</p>
-<p><img src="http://i.imgur.com/xfFf22l.png" alt=""></p>
+<h2 id="为什么要重定向？"><a href="#为什么要重定向？" class="headerlink" title="为什么要重定向？"></a>为什么要重定向？</h2><p>　　做网站优化，我们基本知道url标准化需要采用301重定向。重定向后可以把www.bnuz163.com和bnuz163.com合并，那么如果不合并会怎么样呢？当www.bnuz163.com和bnuz163.com不合并时，访问这2个域名时服务器就会产生2个不相同的session，就会导致刚从bnuz163.com域名登陆后，再打开www.bnuz163.com会发现并没有登陆，需要重新登陆。这并不是我们要的结果，所以很有必要将这2个域名合并，使用同一个session。</p>
+<h2 id="如何设置301重定向？"><a href="#如何设置301重定向？" class="headerlink" title="如何设置301重定向？"></a>如何设置301重定向？</h2><h4 id="第一种方法："><a href="#第一种方法：" class="headerlink" title="第一种方法："></a>第一种方法：</h4><pre><code>server {
+      ...
+      server_name www.bnuz163.com bnuz163.com;
+      if ($host != &apos;www.bnuz163.com&apos; ) {
+         rewrite ^/(.*)$ http://www.bnuz163.com/$1 permanent;
+      }
+      ...
+}
+</code></pre><h4 id="第二种方法："><a href="#第二种方法：" class="headerlink" title="第二种方法："></a>第二种方法：</h4><pre><code>server {
+      ...
+      server_name www.bnuz163.com bnuz163.com;
+      if ($host = &apos;bnuz163.com&apos; ) {
+         rewrite ^/(.*)$ http://www.bnuz163.com/$1 permanent;
+      }
+      ...
+}
+</code></pre><p>这两种方法中， permanent是关键，详细说明见nginx重定向规则说明。</p>
+<blockquote>
+<p>last – 基本上都用这个Flag。<br>break – 中止Rewirte，不在继续匹配<br>redirect – 返回临时重定向的HTTP状态302<br>permanent – 返回永久重定向的HTTP状态301</p>
+</blockquote>
+<p>测试是否定向成功<br><code>/usr/local/nginx/sbin/nginx -t</code><br>提示：</p>
+<blockquote>
+<p>the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok<br>configuration file /usr/local/nginx/conf/nginx.conf test is successful</p>
+</blockquote>
+<p>测试成功, 重启nginx,输入命令：<br><code>/usr/local/nginx/sbin/nginx -s reload</code><br>重启之后测试一下~是否成功设定完成！</p>
+<h2 id="301与302重定向之间有什么区别？"><a href="#301与302重定向之间有什么区别？" class="headerlink" title="301与302重定向之间有什么区别？"></a>301与302重定向之间有什么区别？</h2><p>　　最后顺便说说什么是301重定向？什么是302重定向？它们有什么区别？</p>
+<h3 id="什么是301重定向？什么是301转向？"><a href="#什么是301重定向？什么是301转向？" class="headerlink" title="什么是301重定向？什么是301转向？"></a>什么是301重定向？什么是301转向？</h3><p>　　301转向(或叫301重定向，301跳转)是当用户或搜索引擎向网站服务器发出浏览请求时，服务器返回的HTTP数据流中头信息(header)中的状态码的一种，表示本网页永久性转移到另一个地址。 </p>
+<h3 id="什么是302重定向？"><a href="#什么是302重定向？" class="headerlink" title="什么是302重定向？"></a>什么是302重定向？</h3><p>　　302重定向又称之为302代表暂时性转移(Temporarily Moved )，英文名称：302 redirect。 也被认为是暂时重定向(temporary redirect)，一条对网站浏览器的指令来显示浏览器被要求显示的不同的URL，当一个网页经历过短期的URL的变化时使用。一个暂时重定向是一种服务器端的重定向，能够被搜索引擎蜘蛛正确地处理。 </p>
+<h3 id="301重定向与302重定向有什么区别？"><a href="#301重定向与302重定向有什么区别？" class="headerlink" title="301重定向与302重定向有什么区别？"></a>301重定向与302重定向有什么区别？</h3><p>　　302重定向是暂时的重定向，搜索引擎会抓取新的内容而保留旧的网址。因为服务器返回302代码，搜索引擎认为新的网址只是暂时的。<br>　　301重定向是永久的重定向，搜索引擎在抓取新内容的同时也将旧的网址替换为重定向之后的网址。</p>
 
       
     </div>
@@ -423,13 +314,13 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/">SpringMVC拦截器（资源和权限管理）</a></p>
+        <p><span>本文标题:</span><a href="/2016/08/13/Nginx系列-301重定向设置的两种方法/">Nginx系列-301重定向设置的两种方法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
-        <p><span>发布时间:</span>2016年06月10日 - 18时29分</p>
-        <!-- <p><span>最后更新:</span>2016年09月11日 - 12时56分</p> -->
+        <p><span>发布时间:</span>2016年08月13日 - 10时03分</p>
+        <!-- <p><span>最后更新:</span>2016年09月11日 - 17时20分</p> -->
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/" title="SpringMVC拦截器（资源和权限管理）">http://shinejstar.github.io/2016/06/10/SpringMVC拦截器（资源和权限管理）/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/06/10/SpringMVC拦截器（资源和权限管理）/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/13/Nginx系列-301重定向设置的两种方法/" title="Nginx系列-301重定向设置的两种方法">http://shinejstar.github.io/2016/08/13/Nginx系列-301重定向设置的两种方法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/13/Nginx系列-301重定向设置的两种方法/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -442,18 +333,9 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 
 <nav id="article-nav">
   
-    <a href="/2016/08/12/Nginx系列-配置nginx.conf文件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Nginx系列-配置nginx.conf文件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2016/08/12/Nginx系列-配置nginx.conf文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nginx系列-配置nginx.conf文件</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -464,7 +346,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-DispatcherServlet"><span class="toc-number">1.</span> <span class="toc-text">1.DispatcherServlet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-静态资源不拦截"><span class="toc-number">2.</span> <span class="toc-text">2.静态资源不拦截</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-自定义拦截器"><span class="toc-number">3.</span> <span class="toc-text">3.自定义拦截器</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要重定向？"><span class="toc-number">1.</span> <span class="toc-text">为什么要重定向？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何设置301重定向？"><span class="toc-number">2.</span> <span class="toc-text">如何设置301重定向？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一种方法："><span class="toc-number">2.0.1.</span> <span class="toc-text">第一种方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二种方法："><span class="toc-number">2.0.2.</span> <span class="toc-text">第二种方法：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#301与302重定向之间有什么区别？"><span class="toc-number">3.</span> <span class="toc-text">301与302重定向之间有什么区别？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是301重定向？什么是301转向？"><span class="toc-number">3.1.</span> <span class="toc-text">什么是301重定向？什么是301转向？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是302重定向？"><span class="toc-number">3.2.</span> <span class="toc-text">什么是302重定向？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#301重定向与302重定向有什么区别？"><span class="toc-number">3.3.</span> <span class="toc-text">301重定向与302重定向有什么区别？</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -512,7 +394,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/10/SpringMVC拦截器（资源和权限管理）/" data-title="SpringMVC拦截器（资源和权限管理）" data-url="http://shinejstar.github.io/2016/06/10/SpringMVC拦截器（资源和权限管理）/"></div>
+    <div class="ds-thread" data-thread-key="2016/08/13/Nginx系列-301重定向设置的两种方法/" data-title="Nginx系列-301重定向设置的两种方法" data-url="http://shinejstar.github.io/2016/08/13/Nginx系列-301重定向设置的两种方法/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -535,13 +417,11 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/12/Nginx系列-配置nginx.conf文件/" title="上一篇: Nginx系列-配置nginx.conf文件">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/03/08/hello-world/" title="下一篇: Hello World">
+            <a href="/2016/08/12/Nginx系列-配置nginx.conf文件/" title="下一篇: Nginx系列-配置nginx.conf文件">
                 <i class="fa fa-angle-right"></i>
             </a>
         
