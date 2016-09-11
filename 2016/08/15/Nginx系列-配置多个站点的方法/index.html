@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://shinejstar.github.io/2016/08/15/Nginx系列-配置多个站点的方法/index.html">
 <meta property="og:site_name" content="JStar's Blog">
 <meta property="og:description" content="当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。">
-<meta property="og:updated_time" content="2016-09-11T13:39:39.661Z">
+<meta property="og:updated_time" content="2016-09-11T13:44:14.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx系列-配置多个站点的方法">
 <meta name="twitter:description" content="当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。">
@@ -278,9 +278,16 @@
 <a id="more"></a>
 <p>这里以配置2个站点（2个域名）为例，n 个站点可以相应增加调整，假设：</p>
 <p>　　IP地址: 127.0.0.1<br>　　域名1 www.bnuz163.com tomcat端口为80 静态文件放在 /www/bnuz<br>　　域名2 moto.bnuz163.com tomcat端口为8081 静态文件放在 /www/moto</p>
-<p>配置 nginx virtual hosting 的基本思路和步骤如下：<br>　　把2个站点 www.bnuz163.com, moto.bnuz163.com 放到 nginx 可以访问的目录 /www/<br>　　给每个站点分别创建一个 nginx 配置文件 www.conf，moto.conf, 并把配置文件放到 /nginx/vhosts/<br>　　然后在 /conf/nginx.conf 里面加一句 include 把步骤2创建的配置文件全部包含进来<br>　　重启 nginx</p>
+<p>配置 nginx virtual hosting 的基本思路和步骤如下：
+　　</p>
+<ol>
+<li>把2个站点 www.bnuz163.com, moto.bnuz163.com 放到 nginx 可以访问的目录 /www/</li>
+<li>给每个站点分别创建一个 nginx 配置文件 www.conf，moto.conf, 并把配置文件放到 /nginx/vhosts/</li>
+<li>然后在 /conf/nginx.conf 里面加一句 include 把步骤2创建的配置文件全部包含进来</li>
+<li>重启 nginx</li>
+</ol>
 <h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><p>1、在 /nginx 下创建 <code>vhosts</code> 目录</p>
-<pre><code>mkdir /etc/nginx/vhosts
+<pre><code>mkdir vhosts
 </code></pre><p>2、在 /nginx/vhosts/ 里创建一个名字为 <code>www.conf</code> 的文件，把以下内容拷进去</p>
 <pre><code>#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
 upstream www.bnuz163.com{
@@ -414,7 +421,7 @@ http {
         <p><span>本文标题:</span><a href="/2016/08/15/Nginx系列-配置多个站点的方法/">Nginx系列-配置多个站点的方法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
         <p><span>发布时间:</span>2016年08月15日 - 16时03分</p>
-        <!-- <p><span>最后更新:</span>2016年09月11日 - 21时39分</p> -->
+        <!-- <p><span>最后更新:</span>2016年09月11日 - 21时44分</p> -->
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/08/15/Nginx系列-配置多个站点的方法/" title="Nginx系列-配置多个站点的方法">http://shinejstar.github.io/2016/08/15/Nginx系列-配置多个站点的方法/</a>
             <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/15/Nginx系列-配置多个站点的方法/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
