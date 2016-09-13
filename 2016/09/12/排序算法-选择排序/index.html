@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/3 | JStar&#39;s Blog</title>
+  <title>排序算法-选择排序 | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="JStar's Blog">
-<meta property="og:url" content="http://shinejstar.github.io/archives/2016/03/index.html">
+  <meta name="description" content="选择排序是一种简单直观的排序算法，其基本原理如下：对于给定的一组记录，经过第一轮比较后得到最小的记录，然后将该记录与第一个记录的位置进行交换；接着对不包括第一个记录以外的其他记录进行第二轮比较，得到最小的记录并与第二个记录进行位置交换；重复该过程，直到进行比较的记录只有一个为止。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法-选择排序">
+<meta property="og:url" content="http://shinejstar.github.io/2016/09/12/排序算法-选择排序/index.html">
 <meta property="og:site_name" content="JStar's Blog">
+<meta property="og:description" content="选择排序是一种简单直观的排序算法，其基本原理如下：对于给定的一组记录，经过第一轮比较后得到最小的记录，然后将该记录与第一个记录的位置进行交换；接着对不包括第一个记录以外的其他记录进行第二轮比较，得到最小的记录并与第二个记录进行位置交换；重复该过程，直到进行比较的记录只有一个为止。">
+<meta property="og:updated_time" content="2016-09-13T14:01:55.484Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JStar's Blog">
+<meta name="twitter:title" content="排序算法-选择排序">
+<meta name="twitter:description" content="选择排序是一种简单直观的排序算法，其基本原理如下：对于给定的一组记录，经过第一轮比较后得到最小的记录，然后将该记录与第一个记录的位置进行交换；接着对不包括第一个记录以外的其他记录进行第二轮比较，得到最小的记录并与第二个记录进行位置交换；重复该过程，直到进行比较的记录只有一个为止。">
   
     <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
   
@@ -35,8 +39,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -228,50 +232,237 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-排序算法-选择排序" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/03/08/hello-world/" class="archive-article-date">
-      <time datetime="2016-03-08T04:03:15.000Z" itemprop="datePublished">03-08</time>
+    <div class="article-meta">
+      <a href="/2016/09/12/排序算法-选择排序/" class="article-date">
+      <time datetime="2016-09-12T08:00:00.000Z" itemprop="datePublished">2016-09-12</time>
 </a>
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/08/hello-world/">Hello World</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      排序算法-选择排序
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
-        </div>
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序/">排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>　　选择排序是一种简单直观的排序算法，其基本原理如下：对于给定的一组记录，经过第一轮比较后得到最小的记录，然后将该记录与第一个记录的位置进行交换；接着对不包括第一个记录以外的其他记录进行第二轮比较，得到最小的记录并与第二个记录进行位置交换；重复该过程，直到进行比较的记录只有一个为止。<br><a id="more"></a></p>
+<pre><code>public class Sort {
+
+    private static void sort1(int[] a) {
+        for(int i = 0; i &lt; a.length; ++i) {
+            int k = i;
+            for(int j = i + 1; j &lt; a.length; ++j) {
+                if(a[k] &gt; a[j]) {
+                    k = j;
+                }
+            }
+            if(k != i) {
+                int temp = a[i];
+                a[i] = a[k];
+                a[k] = temp;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] a = {36, 25, 48, 12, 25, 65, 43, 57};
+        sort1(a);
+        print(a);
+    }
+
+    private static void print(int[] a) {
+        System.out.print(&quot;从小到大选择排序：&quot;);
+        for(int i : a)
+            System.out.print(i + &quot; &quot;);
+        System.out.println();
+    }
+
+}
+</code></pre><p>打印结果：</p>
+<blockquote>
+<p>从小到大选择排序：12 25 25 36 43 48 57 65 </p>
+</blockquote>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/12/排序算法-选择排序/">排序算法-选择排序</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
+        <p><span>发布时间:</span>2016年09月12日 - 16时00分</p>
+        <!-- <p><span>最后更新:</span>2016年09月13日 - 22时01分</p> -->
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/12/排序算法-选择排序/" title="排序算法-选择排序">http://shinejstar.github.io/2016/09/12/排序算法-选择排序/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/09/12/排序算法-选择排序/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/09/12/排序算法-插入排序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          排序算法-插入排序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/15/Nginx系列-配置多个站点的方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nginx系列-配置多个站点的方法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/09/12/排序算法-选择排序/" data-title="排序算法-选择排序" data-url="http://shinejstar.github.io/2016/09/12/排序算法-选择排序/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shinejstar"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
 
     
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/09/12/排序算法-插入排序/" title="上一篇: 排序算法-插入排序">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/08/15/Nginx系列-配置多个站点的方法/" title="下一篇: Nginx系列-配置多个站点的方法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/12/排序算法-冒泡排序/">排序算法-冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/12/排序算法-希尔排序/">排序算法-希尔排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/12/排序算法-插入排序/">排序算法-插入排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/12/排序算法-选择排序/">排序算法-选择排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/Nginx系列-配置多个站点的方法/">Nginx系列-配置多个站点的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/Nginx系列-301重定向设置的两种方法/">Nginx系列-301重定向设置的两种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/Nginx系列-配置nginx.conf文件/">Nginx系列-配置nginx.conf文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/">SpringMVC拦截器（资源和权限管理）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -316,17 +507,6 @@
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
