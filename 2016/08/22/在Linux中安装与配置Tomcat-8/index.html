@@ -16,7 +16,8 @@
 <meta property="og:image" content="http://i.imgur.com/oc06iNu.png">
 <meta property="og:image" content="http://i.imgur.com/0VV7nF8.png">
 <meta property="og:image" content="http://i.imgur.com/PjOjTK8.png">
-<meta property="og:updated_time" content="2016-09-25T04:31:16.791Z">
+<meta property="og:image" content="http://i.imgur.com/91O0lYK.png">
+<meta property="og:updated_time" content="2016-09-25T08:55:17.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Linux中安装与配置Tomcat-8">
 <meta name="twitter:description" content="最近因项目需要部署集群服务器，所以开了台CentOS 7.2的服务器，需要重新安装和配置Tomcat，所以把安装和配置步骤记录下来，方便以后参考。此教程安装前提，系统必须安装JDK8。">
@@ -152,7 +153,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CentOS/" style="font-size: 13.33px;">CentOS</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 16.67px;">Nginx</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/拦截器/" style="font-size: 10px;">拦截器</a> <a href="/tags/排序/" style="font-size: 20px;">排序</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+                        <a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 20px;">Nginx</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/拦截器/" style="font-size: 10px;">拦截器</a> <a href="/tags/排序/" style="font-size: 20px;">排序</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
                     </div>
                 </section>
                 
@@ -278,9 +279,9 @@
           
         <p>最近因项目需要部署集群服务器，所以开了台CentOS 7.2的服务器，需要重新安装和配置Tomcat，所以把安装和配置步骤记录下来，方便以后参考。此教程安装前提，系统必须安装JDK8。</p>
 <a id="more"></a>
-<h2 id="下载并解压"><a href="#下载并解压" class="headerlink" title="下载并解压"></a>下载并解压</h2><p>先切换到root身份，下载并解压tomcat8，下载链接查看地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat</a></p>
+<h2 id="下载-amp-解压"><a href="#下载-amp-解压" class="headerlink" title="下载&amp;解压"></a>下载&amp;解压</h2><p>先切换到root身份，下载并解压tomcat8，下载链接查看地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat</a></p>
 <pre><code># cd /usr/local  
-# wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.0.37/bin/apache-tomcat-8.0.37.tar.gz
+# wget -c http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.0.37/bin/apache-tomcat-8.0.37.tar.gz
 # tar -zxv -f apache-tomcat-7.0.29.tar.gz // 解压压缩包  
 # rm -rf apache-tomcat-7.0.29.tar.gz // 删除压缩包  
 # mv apache-tomcat-7.0.29 tomcat  
@@ -316,8 +317,8 @@
 
 //第二种查看方法：
 #  netstat -antup | grep java
-</code></pre><h2 id="外网访问Tomcat"><a href="#外网访问Tomcat" class="headerlink" title="外网访问Tomcat"></a>外网访问Tomcat</h2><p>如果外网访问不了Tomcat，需配置防火墙或者关闭防火墙。</p>
-<p>禁用防火墙命令：</p>
+</code></pre><p><img src="http://i.imgur.com/91O0lYK.png" alt="查看tomcat的端口"></p>
+<h2 id="外网访问Tomcat"><a href="#外网访问Tomcat" class="headerlink" title="外网访问Tomcat"></a>外网访问Tomcat</h2><p>如果外网访问不了Tomcat，需配置防火墙或者关闭防火墙。<br>CentOS 7.0以后防火墙不再采用iptables命令，改用firewalld。<br>禁用防火墙命令：</p>
 <pre><code># systemctl stop firewalld.service  //停止firewall
 # systemctl disable firewalld.service  //禁止firewall开机启动
 # systemctl status firewalld.service  //查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
@@ -335,7 +336,7 @@
         <p><span>本文标题:</span><a href="/2016/08/22/在Linux中安装与配置Tomcat-8/">在Linux中安装与配置Tomcat-8</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
         <p><span>发布时间:</span>2016年08月22日 - 14时26分</p>
-        <!-- <p><span>最后更新:</span>2016年09月25日 - 12时31分</p> -->
+        <!-- <p><span>最后更新:</span>2016年09月25日 - 16时55分</p> -->
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/08/22/在Linux中安装与配置Tomcat-8/" title="在Linux中安装与配置Tomcat-8">http://shinejstar.github.io/2016/08/22/在Linux中安装与配置Tomcat-8/</a>
             <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/22/在Linux中安装与配置Tomcat-8/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -351,6 +352,15 @@
 
 <nav id="article-nav">
   
+    <a href="/2016/08/24/在Linux中安装Nginx-1.10.1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          在Linux中安装Nginx-1.10.1
+        
+      </div>
+    </a>
+  
   
     <a href="/2016/08/21/在Linux中安装与配置JDK-8/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">在Linux中安装与配置JDK-8</div>
@@ -364,7 +374,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载并解压"><span class="toc-number">1.</span> <span class="toc-text">下载并解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动、关闭、杀死进程"><span class="toc-number">3.</span> <span class="toc-text">启动、关闭、杀死进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看Tomcat日志和端口"><span class="toc-number">4.</span> <span class="toc-text">查看Tomcat日志和端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外网访问Tomcat"><span class="toc-number">5.</span> <span class="toc-text">外网访问Tomcat</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载-amp-解压"><span class="toc-number">1.</span> <span class="toc-text">下载&解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动、关闭、杀死进程"><span class="toc-number">3.</span> <span class="toc-text">启动、关闭、杀死进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看Tomcat日志和端口"><span class="toc-number">4.</span> <span class="toc-text">查看Tomcat日志和端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外网访问Tomcat"><span class="toc-number">5.</span> <span class="toc-text">外网访问Tomcat</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -435,7 +445,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/08/24/在Linux中安装Nginx-1.10.1/" title="上一篇: 在Linux中安装Nginx-1.10.1">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -444,7 +456,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/22/在Linux中安装与配置Tomcat-8/">在Linux中安装与配置Tomcat-8</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/21/在Linux中安装与配置JDK-8/">在Linux中安装与配置JDK-8</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/Nginx系列-配置多个站点的方法/">Nginx系列-配置多个站点的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/Nginx系列-301重定向设置的两种方法/">Nginx系列-301重定向设置的两种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/Nginx系列-配置nginx.conf文件/">Nginx系列-配置nginx.conf文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-冒泡排序/">排序算法-冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-希尔排序/">排序算法-希尔排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-插入排序/">排序算法-插入排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-选择排序/">排序算法-选择排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/">SpringMVC拦截器（资源和权限管理）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/在Linux中安装Redis-3.2.3/">在Linux中安装Redis-3.2.3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/24/在Linux中安装Nginx-1.10.1/">在Linux中安装Nginx-1.10.1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/22/在Linux中安装与配置Tomcat-8/">在Linux中安装与配置Tomcat-8</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/21/在Linux中安装与配置JDK-8/">在Linux中安装与配置JDK-8</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/Nginx系列-配置多个站点的方法/">Nginx系列-配置多个站点的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/Nginx系列-301重定向设置的两种方法/">Nginx系列-301重定向设置的两种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/Nginx系列-配置nginx.conf文件/">Nginx系列-配置nginx.conf文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-冒泡排序/">排序算法-冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-希尔排序/">排序算法-希尔排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-插入排序/">排序算法-插入排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-选择排序/">排序算法-选择排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/">SpringMVC拦截器（资源和权限管理）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/hello-world/">Hello World</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

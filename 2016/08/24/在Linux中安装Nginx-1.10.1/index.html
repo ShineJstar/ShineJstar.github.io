@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SpringMVC拦截器（资源和权限管理） | JStar&#39;s Blog</title>
+  <title>在Linux中安装Nginx-1.10.1 | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringMVC 中的Interceptor 拦截器也是相当重要和相当有用的，它的主要作用是拦截用户的请求并进行相应的处理。比如通过它来进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。">
+  <meta name="description" content="Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。现在项目需要搭载集群服务器，故采用Nginx反向代理负载均衡来实现。安装环境CentOS 7.2，安装Nginx版本1.10.1。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringMVC拦截器（资源和权限管理）">
-<meta property="og:url" content="http://shinejstar.github.io/2016/06/10/SpringMVC拦截器（资源和权限管理）/index.html">
+<meta property="og:title" content="在Linux中安装Nginx-1.10.1">
+<meta property="og:url" content="http://shinejstar.github.io/2016/08/24/在Linux中安装Nginx-1.10.1/index.html">
 <meta property="og:site_name" content="JStar's Blog">
-<meta property="og:description" content="SpringMVC 中的Interceptor 拦截器也是相当重要和相当有用的，它的主要作用是拦截用户的请求并进行相应的处理。比如通过它来进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。">
-<meta property="og:image" content="http://i.imgur.com/xfFf22l.png">
-<meta property="og:updated_time" content="2016-09-11T04:56:55.249Z">
+<meta property="og:description" content="Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。现在项目需要搭载集群服务器，故采用Nginx反向代理负载均衡来实现。安装环境CentOS 7.2，安装Nginx版本1.10.1。">
+<meta property="og:image" content="http://i.imgur.com/sOQR5tu.jpg">
+<meta property="og:updated_time" content="2016-09-25T08:55:27.300Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringMVC拦截器（资源和权限管理）">
-<meta name="twitter:description" content="SpringMVC 中的Interceptor 拦截器也是相当重要和相当有用的，它的主要作用是拦截用户的请求并进行相应的处理。比如通过它来进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。">
-<meta name="twitter:image" content="http://i.imgur.com/xfFf22l.png">
+<meta name="twitter:title" content="在Linux中安装Nginx-1.10.1">
+<meta name="twitter:description" content="Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。现在项目需要搭载集群服务器，故采用Nginx反向代理负载均衡来实现。安装环境CentOS 7.2，安装Nginx版本1.10.1。">
+<meta name="twitter:image" content="http://i.imgur.com/sOQR5tu.jpg">
   
     <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
   
@@ -234,11 +234,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-SpringMVC拦截器（资源和权限管理）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-在Linux中安装Nginx-1.10.1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/" class="article-date">
-      <time datetime="2016-06-10T10:29:42.000Z" itemprop="datePublished">2016-06-10</time>
+      <a href="/2016/08/24/在Linux中安装Nginx-1.10.1/" class="article-date">
+      <time datetime="2016-08-24T08:26:52.000Z" itemprop="datePublished">2016-08-24</time>
 </a>
     </div>
   
@@ -251,7 +251,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SpringMVC拦截器（资源和权限管理）
+      在Linux中安装Nginx-1.10.1
     </h1>
   
 
@@ -262,7 +262,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringMVC/">SpringMVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/拦截器/">拦截器</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -272,145 +272,113 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>　　SpringMVC 中的Interceptor 拦截器也是相当重要和相当有用的，它的主要作用是拦截用户的请求并进行相应的处理。比如通过它来进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。</p>
+        <p>Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。现在项目需要搭载集群服务器，故采用Nginx反向代理负载均衡来实现。安装环境CentOS 7.2，安装Nginx版本1.10.1。</p>
 <a id="more"></a>
-<h4 id="1-DispatcherServlet"><a href="#1-DispatcherServlet" class="headerlink" title="1.DispatcherServlet"></a>1.DispatcherServlet</h4><p>　　SpringMVC具有统一的入口DispatcherServlet，所有的请求都通过DispatcherServlet。<br>　　DispatcherServlet是前置控制器，配置在web.xml文件中的。拦截匹配的请求，Servlet拦截匹配规则要自已定义，把拦截下来的请求，依据某某规则分发到目标Controller来处理。  所以我们现在web.xml中加入以下配置：</p>
-<pre><code>&lt;!-- 初始化 DispatcherServlet时，该框架在 web应用程序WEB-INF目录中寻找一个名为[servlet-名称]-servlet.xml的文件，  
-并在那里定义相关的Beans，重写在全局中定义的任何Beans --&gt;  
-&lt;servlet&gt;  
- &lt;servlet-name&gt;springMybatis&lt;/servlet-name&gt;  
- &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;  
- &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;  
-&lt;/servlet&gt;  
-&lt;servlet-mapping&gt;  
- &lt;servlet-name&gt;springMybatis&lt;/servlet-name&gt;  
- &lt;!-- 所有的的请求，都会被DispatcherServlet处理 --&gt;  
- &lt;url-pattern&gt;/&lt;/url-pattern&gt;  
-&lt;/servlet-mapping&gt;  
-</code></pre><h4 id="2-静态资源不拦截"><a href="#2-静态资源不拦截" class="headerlink" title="2.静态资源不拦截"></a>2.静态资源不拦截</h4><p>　　如果只配置拦截类似于*.do格式的url，则对静态资源的访问是没有问题的，但是如果配置拦截了所有的请求（如我们上面配置的“/”），就会造成js文件、css文件、图片文件等静态资源无法访问。<br>　　一般实现拦截器主要是为了权限管理，主要是拦截一些url请求，所以不对静态资源进行拦截。要过滤掉静态资源一般有两种方式，<br>　　第一种是采用<mvc:default-servlet-handler>，（一般Web应用服务器默认的Servlet名称是”default”，所以这里我们激活Tomcat的defaultServlet来处理静态文件，在web.xml里配置如下代码即可：）</mvc:default-servlet-handler></p>
-<pre><code>&lt;!--　该servlet为tomcat,jetty等容器提供,将静态资源映射从/改为/static/目录，如原来访问　http://localhost/foo.css　,现在http://localhost/static/foo.css　--&gt;  
-&lt;!-- 不拦截静态文件 --&gt;  
-    &lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;default&lt;/servlet-name&gt;  
-    &lt;url-pattern&gt;/js/*&lt;/url-pattern&gt;  
-    &lt;url-pattern&gt;/css/*&lt;/url-pattern&gt;  
-    &lt;url-pattern&gt;/images/*&lt;/url-pattern&gt;  
-    &lt;url-pattern&gt;/fonts/*&lt;/url-pattern&gt;  
-&lt;/servlet-mapping&gt;  
-</code></pre><p>　　Tomcat, Jetty, JBoss, and GlassFish  默认 Servlet的名字 – “default”<br>　　Resin 默认 Servlet的名字 – “resin-file”<br>　　WebLogic 默认 Servlet的名字  – “FileServlet”<br>　　WebSphere  默认 Servlet的名字 – “SimpleFileServlet”</p>
-<p>　　如果你所有的Web应用服务器的默认Servlet名称不是”default”，则需要通过default-servlet-name属性显示指定：</p>
-<pre><code>&lt;mvc:default-servlet-handler default-servlet-name=&quot;所使用的Web服务器默认使用的Servlet名称&quot; /&gt;
-</code></pre><p>　　第二种是采用<mvc:resources>，在springmvc的配置文件中加入以下代码：</mvc:resources></p>
-<pre><code>&lt;mvc:resources mapping=&quot;/js/**&quot; location=&quot;/static_resources/javascript/&quot;/&gt;    
-&lt;mvc:resources mapping=&quot;/styles/**&quot; location=&quot;/static_resources/css/&quot;/&gt;    
-&lt;mvc:resources mapping=&quot;/images/**&quot; location=&quot;/static_resources/images/&quot;/&gt; 
-</code></pre><h4 id="3-自定义拦截器"><a href="#3-自定义拦截器" class="headerlink" title="3.自定义拦截器"></a>3.自定义拦截器</h4><p>　　SpringMVC的拦截器HandlerInterceptorAdapter对应提供了三个preHandle，postHandle，afterCompletion方法。preHandle在业务处理器处理请求之前被调用，<br>　　postHandle在业务处理器处理请求执行完成后,生成视图之前执行，afterCompletion在DispatcherServlet完全处理完请求后被调用,可用于清理资源等 。所以要想实现自己的权限管理逻辑，需要继承HandlerInterceptorAdapter并重写其三个方法。<br>　　首先在springmvc.xml中加入自己定义的拦截器我的实现逻辑CommonInterceptor，</p>
-<pre><code>&lt;!--配置拦截器, 多个拦截器,顺序执行 --&gt;  
-&lt;mvc:interceptors&gt;    
-    &lt;mvc:interceptor&gt;    
-        &lt;!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller --&gt;  
-        &lt;mvc:mapping path=&quot;/&quot; /&gt;  
-        &lt;mvc:mapping path=&quot;/user/**&quot; /&gt;  
-        &lt;mvc:mapping path=&quot;/test/**&quot; /&gt;  
-        &lt;bean class=&quot;com.alibaba.interceptor.CommonInterceptor&quot;&gt;&lt;/bean&gt;    
-    &lt;/mvc:interceptor&gt;  
-    &lt;!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 --&gt;  
-&lt;/mvc:interceptors&gt;  
-</code></pre><p>　　我的拦截逻辑是“在未登录前，任何访问url都跳转到login页面；登录成功后跳转至先前的url”，具体代码如下：</p>
-<pre><code>package com.alibaba.interceptor;  
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1、安装必备工具：</p>
+<pre><code>$ yum -y install gcc gcc-c++ autoconf automake
+$ yum -y install zlib zlib-devel openssl openssl-devel pcre-devel
+</code></pre><p>说明：<br>pcre: 用来作地址重写的功能。<br>zlib：nginx 的gzip模块,传输数据打包，省流量（但消耗资源）。<br>openssl：提供ssl加密协议。</p>
+<p>2、新建一个系统级用户组和匿名用户，以及下面编译时使用。</p>
+<pre><code>$ sudo groupadd -r nginx
+$ sudo useradd -s /sbin/nologin -g nginx -r nginx-user
+</code></pre><h2 id="下载-amp-解压-amp-编译安装"><a href="#下载-amp-解压-amp-编译安装" class="headerlink" title="下载&amp;解压&amp;编译安装"></a>下载&amp;解压&amp;编译安装</h2><p>1、下载Nginx，下载最新版本查看链接：<a href="http://nginx.org/en/download.html" target="_blank" rel="external">http://nginx.org/en/download.html</a></p>
+<pre><code>$ cd /usr/local
+$ wget -c http://nginx.org/download/nginx-1.10.1.tar.gz
+</code></pre><p>2、解压</p>
+<pre><code>$ tar -zxvf nginx-1.9.2.tar.gz
+</code></pre><p>3、编译</p>
+<pre><code>$ cd nginx-1.9.2/
 
-import javax.servlet.http.HttpServletRequest;  
-import javax.servlet.http.HttpServletResponse;  
-
-import org.slf4j.Logger;  
-import org.slf4j.LoggerFactory;  
-import org.springframework.web.servlet.ModelAndView;  
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  
-
-import com.alibaba.util.RequestUtil;  
-
-
-/** 
- * @author tfj 
- * 2014-8-1 
- */  
-public class CommonInterceptor extends HandlerInterceptorAdapter{  
-    private final Logger log = LoggerFactory.getLogger(CommonInterceptor.class);  
-    public static final String LAST_PAGE = &quot;com.alibaba.lastPage&quot;;  
-    /* 
-     * 利用正则映射到需要拦截的路径     
-
-    private String mappingURL; 
-
-    public void setMappingURL(String mappingURL) {     
-               this.mappingURL = mappingURL;     
-    }    
-  */  
-    /**  
-     * 在业务处理器处理请求之前被调用  
-     * 如果返回false  
-     *     从当前的拦截器往回执行所有拦截器的afterCompletion(),再退出拦截器链 
-     * 如果返回true  
-     *    执行下一个拦截器,直到所有的拦截器都执行完毕  
-     *    再执行被拦截的Controller  
-     *    然后进入拦截器链,  
-     *    从最后一个拦截器往回执行所有的postHandle()  
-     *    接着再从最后一个拦截器往回执行所有的afterCompletion()  
-     */    
-    @Override    
-    public boolean preHandle(HttpServletRequest request,    
-            HttpServletResponse response, Object handler) throws Exception {    
-        if (&quot;GET&quot;.equalsIgnoreCase(request.getMethod())) {  
-            RequestUtil.saveRequest();  
-        }  
-        log.info(&quot;==============执行顺序: 1、preHandle================&quot;);    
-        String requestUri = request.getRequestURI();  
-        String contextPath = request.getContextPath();  
-        String url = requestUri.substring(contextPath.length());  
-
-        log.info(&quot;requestUri:&quot;+requestUri);    
-        log.info(&quot;contextPath:&quot;+contextPath);    
-        log.info(&quot;url:&quot;+url);    
-
-        String username =  (String)request.getSession().getAttribute(&quot;user&quot;);   
-        if(username == null){  
-            log.info(&quot;Interceptor：跳转到login页面！&quot;);  
-            request.getRequestDispatcher(&quot;/WEB-INF/jsp/login.jsp&quot;).forward(request, response);  
-            return false;  
-        }else  
-            return true;     
-    }    
-
-    /** 
-     * 在业务处理器处理请求执行完成后,生成视图之前执行的动作    
-     * 可在modelAndView中加入数据，比如当前时间 
-     */  
-    @Override    
-    public void postHandle(HttpServletRequest request,    
-            HttpServletResponse response, Object handler,    
-            ModelAndView modelAndView) throws Exception {     
-        log.info(&quot;==============执行顺序: 2、postHandle================&quot;);    
-        if(modelAndView != null){  //加入当前时间    
-            modelAndView.addObject(&quot;var&quot;, &quot;测试postHandle&quot;);    
-        }    
-    }    
-
-    /**  
-     * 在DispatcherServlet完全处理完请求后被调用,可用于清理资源等   
-     *   
-     * 当有拦截器抛出异常时,会从当前拦截器往回执行所有的拦截器的afterCompletion()  
-     */    
-    @Override    
-    public void afterCompletion(HttpServletRequest request,    
-            HttpServletResponse response, Object handler, Exception ex)    
-            throws Exception {    
-        log.info(&quot;==============执行顺序: 3、afterCompletion================&quot;);    
-    }    
-
-}    
-</code></pre><p>　　注：上述代码里我写了一个RequestUtil,主要实现获取当前Request、Session对象，保存和加密页面，取出等功能。<br>至此，拦截器已经实现了，效果如图：<br>我直接访问/test/hello，会被拦截</p>
-<p>登录成功后会跳转至/test/hello对应的页面</p>
-<p><img src="http://i.imgur.com/xfFf22l.png" alt=""></p>
+$ ./configure \
+--prefix=/etc/nginx \
+--sbin-path=/usr/sbin/nginx \
+--conf-path=/etc/nginx/nginx.conf \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--pid-path=/var/run/nginx.pid \
+--lock-path=/var/run/nginx.lock \
+--http-client-body-temp-path=/var/cache/nginx/client_temp \
+--http-proxy-temp-path=/var/cache/nginx/proxy_temp \
+--http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+--http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
+--http-scgi-temp-path=/var/cache/nginx/scgi_temp \
+--user=nginx \--group=nginx \
+--with-http_ssl_module \
+--with-http_realip_module \
+--with-http_addition_module \
+--with-http_sub_module \
+--with-http_dav_module \
+--with-http_flv_module \
+--with-http_mp4_module \
+--with-http_gunzip_module \
+--with-http_gzip_static_module \
+--with-http_random_index_module \
+--with-http_secure_link_module \
+--with-http_stub_status_module \
+--with-http_auth_request_module \
+--with-mail \
+--with-mail_ssl_module \
+--with-file-aio \
+--with-ipv6 \
+--with-http_spdy_module \
+--with-cc-opt=&apos;-O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic&apos;
+</code></pre><p>其中 <code>--with-http_spdy_module \</code>在1.10.1版本中可能不需要。<br>上面的参数的作用可以通过<code>--help</code>来查看。</p>
+<pre><code>$ ./configure --help
+</code></pre><p>编译日志：</p>
+<blockquote>
+<p>checking for OS</p>
+<ul>
+<li>Linux 3.10.0-229.4.2.el7.x86_64 x86_64<br>checking for C compiler … found</li>
+<li>using GNU C compiler</li>
+<li>gcc version: 4.8.3 20140911 (Red Hat 4.8.3-9) (GCC)<br>checking for gcc -pipe switch … found<br>checking for gcc builtin atomic operations … found<br>checking for C99 variadic macros … found<br>checking for gcc variadic macros … found<br>checking for unistd.h … found<br>checking for inttypes.h … found<br>checking for limits.h … found<br>checking for sys/filio.h … not found<br>checking for sys/param.h … found<br>checking for sys/mount.h … found<br>checking for sys/statvfs.h … found<br>checking for crypt.h … found<br>checking for Linux specific features<br>checking for epoll … found<br>checking for EPOLLRDHUP … found<br>checking for O_PATH … found<br>checking for sendfile() … found<br>checking for sendfile64() … found<br>checking for sys/prctl.h … found<br>checking for prctl(PR_SET_DUMPABLE) … found<br>checking for sched_setaffinity() … found<br>checking for crypt_r() … found<br>checking for sys/vfs.h … found<br>checking for poll() … found<br>checking for /dev/poll … not found<br>checking for kqueue … not found<br>checking for crypt() … not found<br>checking for crypt() in libcrypt … found<br>checking for F_READAHEAD … not found<br>checking for posix_fadvise() … found<br>checking for O_DIRECT … found<br>checking for F_NOCACHE … not found<br>checking for directio() … not found<br>checking for statfs() … found<br>checking for statvfs() … found<br>checking for dlopen() … not found<br>checking for dlopen() in libdl … found<br>checking for sched_yield() … found<br>checking for SO_SETFIB … not found<br>checking for SO_REUSEPORT … found<br>checking for SO_ACCEPTFILTER … not found<br>checking for TCP_DEFER_ACCEPT … found<br>checking for TCP_KEEPIDLE … found<br>checking for TCP_FASTOPEN … not found<br>checking for TCP_INFO … found<br>checking for accept4() … found<br>checking for eventfd() … found<br>checking for int size … 4 bytes<br>checking for long size … 8 bytes<br>checking for long long size … 8 bytes<br>checking for void * size … 8 bytes<br>checking for uint64_t … found<br>checking for sig_atomic_t … found<br>checking for sig_atomic_t size … 4 bytes<br>checking for socklen_t … found<br>checking for in_addr_t … found<br>checking for in_port_t … found<br>checking for rlim_t … found<br>checking for uintptr_t … uintptr_t found<br>checking for system byte ordering … little endian<br>checking for size_t size … 8 bytes<br>checking for off_t size … 8 bytes<br>checking for time_t size … 8 bytes<br>checking for setproctitle() … not found<br>checking for pread() … found<br>checking for pwrite() … found<br>checking for sys_nerr … found<br>checking for localtime_r() … found<br>checking for posix_memalign() … found<br>checking for memalign() … found<br>checking for mmap(MAP_ANON|MAP_SHARED) … found<br>checking for mmap(“/dev/zero”, MAP_SHARED) … found<br>checking for System V shared memory … found<br>checking for POSIX semaphores … not found<br>checking for POSIX semaphores in libpthread … found<br>checking for struct msghdr.msg_control … found<br>checking for ioctl(FIONBIO) … found<br>checking for struct tm.tm_gmtoff … found<br>checking for struct dirent.d_namlen … not found<br>checking for struct dirent.d_type … found<br>checking for sysconf(_SC_NPROCESSORS_ONLN) … found<br>checking for openat(), fstatat() … found<br>checking for getaddrinfo() … found<br>checking for PCRE library … found<br>checking for PCRE JIT support … found<br>checking for OpenSSL library … found<br>checking for zlib library … found<br>creating objs/Makefile</li>
+</ul>
+<p>Configuration summary</p>
+<ul>
+<li>using system PCRE library</li>
+<li>using system OpenSSL library</li>
+<li>md5: using OpenSSL library</li>
+<li>sha1: using OpenSSL library</li>
+<li>using system zlib library</li>
+</ul>
+<p>  nginx path prefix: “/usr”<br>  nginx binary file: “/usr/sbin/nginx”<br>  nginx configuration prefix: “/etc/nginx”<br>  nginx configuration file: “/etc/nginx/nginx.conf”<br>  nginx pid file: “/var/run/nginx/nginx.pid”<br>  nginx error log file: “/var/log/nginx/error.log”<br>  nginx http access log file: “/var/log/nginx/http.log”<br>  nginx http client request body temporary files: “/var/tmp/nginx/client”<br>  nginx http proxy temporary files: “/var/tmp/nginx/proxy”<br>  nginx http fastcgi temporary files: “/var/tmp/nginx/fcgi”<br>  nginx http uwsgi temporary files: “uwsgi_temp”<br>  nginx http scgi temporary files: “scgi_temp”</p>
+</blockquote>
+<p>4、安装</p>
+<pre><code>$ make &amp;&amp; make install
+</code></pre><p>5、启动</p>
+<pre><code>$ nginx -c /etc/nginx/nginx.conf
+</code></pre><p>如果提示缺什么包，直接用yum安装</p>
+<pre><code>$ yum install xxxxx
+</code></pre><p>如果提示：</p>
+<blockquote>
+<p>nginx: [emerg] mkdir() “/var/tmp/nginx/client_temp” failed (2: No such file or directory)</p>
+</blockquote>
+<p>则用管理员去mkdir 创建文件夹后再启动。</p>
+<pre><code>$ mkdir -p /var/tmp/nginx/client_temp
+</code></pre><h2 id="相关指令"><a href="#相关指令" class="headerlink" title="相关指令"></a>相关指令</h2><p>1、查看Nginx的安装目录：</p>
+<pre><code>$ whereis nginx
+</code></pre><p>2、检查配置文件是否正确：</p>
+<pre><code>$ cd /etc/nginx
+$ nginx -t
+</code></pre><p>3、启动：</p>
+<pre><code>$ nginx -c /etc/nginx/nginx.conf
+</code></pre><p>4、重启：</p>
+<pre><code>$ cd /etc/nginx
+$ nginx -s reload
+</code></pre><p>5、停止服务器：</p>
+<pre><code>$ ps -ef | grep nginx
+$kill -9 [pid] [pid2]
+</code></pre><p><img src="http://i.imgur.com/sOQR5tu.jpg" alt="停止服务器"></p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>如果安装Nginx前的准备工作没有新建系统级用户组和匿名用户，启动Nginx时会出现如下情况：</p>
+<blockquote>
+<p>nginx: [emerg] getpwnam(“nginx”) failed</p>
+</blockquote>
+<p>解决方法：</p>
+<pre><code>$useradd -r -M nginx
+</code></pre><p>解决方法其他参考链接：</p>
+<ul>
+<li><a href="https://my.oschina.net/u/1036767/blog/210443" target="_blank" rel="external">https://my.oschina.net/u/1036767/blog/210443</a></li>
+<li><a href="http://blog.csdn.net/joeyon1985/article/details/46422715" target="_blank" rel="external">http://blog.csdn.net/joeyon1985/article/details/46422715</a></li>
+</ul>
 
       
     </div>
@@ -419,13 +387,13 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/">SpringMVC拦截器（资源和权限管理）</a></p>
+        <p><span>本文标题:</span><a href="/2016/08/24/在Linux中安装Nginx-1.10.1/">在Linux中安装Nginx-1.10.1</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
-        <p><span>发布时间:</span>2016年06月10日 - 18时29分</p>
-        <!-- <p><span>最后更新:</span>2016年09月11日 - 12时56分</p> -->
+        <p><span>发布时间:</span>2016年08月24日 - 16时26分</p>
+        <!-- <p><span>最后更新:</span>2016年09月25日 - 16时55分</p> -->
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/" title="SpringMVC拦截器（资源和权限管理）">http://shinejstar.github.io/2016/06/10/SpringMVC拦截器（资源和权限管理）/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/06/10/SpringMVC拦截器（资源和权限管理）/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/24/在Linux中安装Nginx-1.10.1/" title="在Linux中安装Nginx-1.10.1">http://shinejstar.github.io/2016/08/24/在Linux中安装Nginx-1.10.1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/24/在Linux中安装Nginx-1.10.1/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -438,18 +406,18 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 
 <nav id="article-nav">
   
-    <a href="/2016/07/12/排序算法-选择排序/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/25/在Linux中安装Redis-3.2.3/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          排序算法-选择排序
+          在Linux中安装Redis-3.2.3
         
       </div>
     </a>
   
   
-    <a href="/2016/03/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2016/08/22/在Linux中安装与配置Tomcat-8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在Linux中安装与配置Tomcat-8</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -460,7 +428,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-DispatcherServlet"><span class="toc-number">1.</span> <span class="toc-text">1.DispatcherServlet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-静态资源不拦截"><span class="toc-number">2.</span> <span class="toc-text">2.静态资源不拦截</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-自定义拦截器"><span class="toc-number">3.</span> <span class="toc-text">3.自定义拦截器</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载-amp-解压-amp-编译安装"><span class="toc-number">2.</span> <span class="toc-text">下载&解压&编译安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关指令"><span class="toc-number">3.</span> <span class="toc-text">相关指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -508,7 +476,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/10/SpringMVC拦截器（资源和权限管理）/" data-title="SpringMVC拦截器（资源和权限管理）" data-url="http://shinejstar.github.io/2016/06/10/SpringMVC拦截器（资源和权限管理）/"></div>
+    <div class="ds-thread" data-thread-key="2016/08/24/在Linux中安装Nginx-1.10.1/" data-title="在Linux中安装Nginx-1.10.1" data-url="http://shinejstar.github.io/2016/08/24/在Linux中安装Nginx-1.10.1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -531,13 +499,13 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/12/排序算法-选择排序/" title="上一篇: 排序算法-选择排序">
+            <a href="/2016/08/25/在Linux中安装Redis-3.2.3/" title="上一篇: 在Linux中安装Redis-3.2.3">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/03/08/hello-world/" title="下一篇: Hello World">
+            <a href="/2016/08/22/在Linux中安装与配置Tomcat-8/" title="下一篇: 在Linux中安装与配置Tomcat-8">
                 <i class="fa fa-angle-right"></i>
             </a>
         
