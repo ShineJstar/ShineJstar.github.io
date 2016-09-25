@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Nginx系列-配置多个站点的方法 | JStar&#39;s Blog</title>
+  <title>在Linux中安装与配置JDK-8 | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。">
+  <meta name="description" content="最近需要部署集群服务器，所以开了台CentOS 7.2的服务器，需要重新部署Java环境，所以把部署步骤记录下来，方便以后参考。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx系列-配置多个站点的方法">
-<meta property="og:url" content="http://shinejstar.github.io/2016/08/15/Nginx系列-配置多个站点的方法/index.html">
+<meta property="og:title" content="在Linux中安装与配置JDK-8">
+<meta property="og:url" content="http://shinejstar.github.io/2016/09/25/在Linux中安装与配置JDK-8/index.html">
 <meta property="og:site_name" content="JStar's Blog">
-<meta property="og:description" content="当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。">
-<meta property="og:updated_time" content="2016-09-11T13:44:14.268Z">
+<meta property="og:description" content="最近需要部署集群服务器，所以开了台CentOS 7.2的服务器，需要重新部署Java环境，所以把部署步骤记录下来，方便以后参考。">
+<meta property="og:image" content="http://i.imgur.com/cXlZNBT.jpg">
+<meta property="og:image" content="http://i.imgur.com/JkL4A7q.jpg">
+<meta property="og:updated_time" content="2016-09-25T03:03:35.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx系列-配置多个站点的方法">
-<meta name="twitter:description" content="当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。">
+<meta name="twitter:title" content="在Linux中安装与配置JDK-8">
+<meta name="twitter:description" content="最近需要部署集群服务器，所以开了台CentOS 7.2的服务器，需要重新部署Java环境，所以把部署步骤记录下来，方便以后参考。">
+<meta name="twitter:image" content="http://i.imgur.com/cXlZNBT.jpg">
   
     <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
   
@@ -232,11 +235,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Nginx系列-配置多个站点的方法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-在Linux中安装与配置JDK-8" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/15/Nginx系列-配置多个站点的方法/" class="article-date">
-      <time datetime="2016-08-15T08:03:43.000Z" itemprop="datePublished">2016-08-15</time>
+      <a href="/2016/09/25/在Linux中安装与配置JDK-8/" class="article-date">
+      <time datetime="2016-09-25T01:56:52.276Z" itemprop="datePublished">2016-09-25</time>
 </a>
     </div>
   
@@ -249,7 +252,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Nginx系列-配置多个站点的方法
+      在Linux中安装与配置JDK-8
     </h1>
   
 
@@ -260,7 +263,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDK/">JDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -270,142 +273,49 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>　　当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。</p>
+        <p>最近需要部署集群服务器，所以开了台CentOS 7.2的服务器，需要重新部署Java环境，所以把部署步骤记录下来，方便以后参考。</p>
 <a id="more"></a>
-<p>这里以配置2个站点（2个域名）为例，n 个站点可以相应增加调整，假设：</p>
-<p>　　IP地址: 127.0.0.1<br>　　域名1 www.bnuz163.com tomcat端口为80 静态文件放在 /www/bnuz<br>　　域名2 moto.bnuz163.com tomcat端口为8081 静态文件放在 /www/moto</p>
-<p>配置 nginx virtual hosting 的基本思路和步骤如下：
-　　</p>
-<ol>
-<li>把2个站点 www.bnuz163.com, moto.bnuz163.com 放到 nginx 可以访问的目录 /www/</li>
-<li>给每个站点分别创建一个 nginx 配置文件 www.conf，moto.conf, 并把配置文件放到 /nginx/vhosts/</li>
-<li>然后在 /conf/nginx.conf 里面加一句 include 把步骤2创建的配置文件全部包含进来</li>
-<li>重启 nginx</li>
-</ol>
-<h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><p>1、在 /nginx 下创建 <code>vhosts</code> 目录</p>
-<pre><code>mkdir vhosts
-</code></pre><p>2、在 /nginx/vhosts/ 里创建一个名字为 <code>www.conf</code> 的文件，把以下内容拷进去</p>
-<pre><code>#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
-upstream www.bnuz163.com{
-    server server1.bnuz163.com:8080 max_fails=1 fail_timeout=1s;
-    server server2.bnuz163.com:8080 max_fails=1 fail_timeout=1s;
-}
-
-server {
-    listen       80;
-    server_name  bunz163.com www.bnuz163.com;
-    root   ./html/bnuz/;
-
-    #access_log  logs/host.access.log  main;
-    #重定向
-    if ($host = &apos;bnuz163.com&apos;){
-       rewrite ^/(.*)$ http://www.bnuz163.com/$1 permanent;
-    }
-
-    location ~^/druid/ {
-        proxy_pass http://www.bnuz163.com;
-        proxy_connect_timeout 2s;
-
-    }
-
-    location / {
-        index  index.html;
-        #如果直接域名访问就显示上一句index配置的静态首页
-        if ( !-e $request_filename ) {
-            proxy_pass http://www.bnuz163.com;
-        }
-
-        proxy_connect_timeout 2s;
-        proxy_redirect off; 
-        proxy_set_header Host $host; #这一句至关重要
-        proxy_set_header X-Real-IP $remote_addr; 
-        #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;             
-    }
-
-    location ~* \.(htm|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma|svg|js|css)$ {
-        root   ./www/bnuz/;
-        expires 1h;
-    }
-
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   ./html/bnuz/;
-    }
-}
-</code></pre><p>3、在 /nginx/vhosts/ 里创建一个名字为 <code>moto.conf</code> 的文件，把以下内容拷进去</p>
-<pre><code>upstream moto.bnuz163.com{
-    server moto.bnuz163.com:8081 max_fails=1 fail_timeout=1s;
-}
-
-server {
-    listen             80;
-    server_name        moto.bnuz163.com;
-    location / {
-        proxy_pass http://moto.bnuz163.com;
-        proxy_connect_timeout 2s;
-
-        proxy_redirect off; 
-        proxy_set_header Host $host; #这一句至关重要
-        proxy_set_header X-Real-IP $remote_addr; 
-        #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
-
-    location ~* \.(htm|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma|svg|js|css)$ {
-        root   ./www/moto/;
-        expires 1h;
-    }
-}
-</code></pre><p>4、打开 /nginx/conf/nginx.conf 文件，在相应位置加入 <code>include</code> 把以上2个文件包含进来</p>
-<pre><code>worker_processes  1;
-
-error_log  logs/error.log;
-error_log  logs/error.log  notice;
-error_log  logs/error.log  info;
-
-#pid        logs/nginx.pid;
-
-events {
-    worker_connections  10000;
-}
-
-
-http {
-    include       mime.types;
-    default_type  application/octet-stream;
-
-    sendfile        on;
-    #tcp_nopush     on;
-
-    #默认编码
-    charset utf-8;
-    tcp_nopush on; #防止网络阻塞
-    tcp_nodelay on; #防止网络阻塞
-
-    #keepalive_timeout  0;
-    keepalive_timeout  60;
-
-    #开启zip网页压缩
-    gzip  on;
-    gzip_min_length 1k;
-    gzip_buffers 4 8k;
-    gzip_http_version 1.1;
-    gzip_types text/plain application/x-javascript text/css application/xml;
-
-
-    #秒抢小助手配置
-    include ./vhosts/www.conf;
-    # 摩托车商城配置
-    include ./vhosts/moto.conf;
-
-}
-</code></pre><p>5、判断配置文件是否正确，如果正确就重启nginx</p>
-<p><code>nginx -t</code><br>提示：</p>
+<h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><p>1、检验系统原版本</p>
+<pre><code># java -version
+java version &quot;1.6.0_24&quot;
+OpenJDK Runtime Environment (IcedTea6 1.11.1) (rhel-1.45.1.11.1.el6-x86_64)
+OpenJDK 64-Bit Server VM (build 20.0-b12, mixed mode)
+</code></pre><p>进一步查看JDK信息：</p>
+<pre><code># rpm -qa | grep java
+tzdata-java-2012c-1.el6.noarch
+java-1.6.0-openjdk-1.6.0.0-1.45.1.11.1.el6.x86_64
+</code></pre><p>卸载OpenJDK，执行以下操作：</p>
+<pre><code># rpm -e --nodeps tzdata-java-2012c-1.el6.noarch
+# rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.45.1.11.1.el6.x86_64
+</code></pre><p>如果出现找不到openjdk source的话，那么还可以这样卸载:</p>
+<pre><code># yum -y remove java tzdata-java-2012c-1.el6.noarch
+# yum -y remove java java-1.6.0-openjdk-1.6.0.0-1.45.1.11.1.el6.x86_64
+</code></pre><p>2、进入/usr/java/local/文件夹，使用wget 命令下载jdk1.8，查看下载的链接：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">查看最新jdk下载链接</a></p>
+<pre><code># wget -c http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.rpm?AuthParam=1474770121_1b808522db6a37cb79b96daa2f0ad246
+</code></pre><p><img src="http://i.imgur.com/cXlZNBT.jpg" alt="wget 命令下载jdk1.8"></p>
+<p>3、安装JDK</p>
+<pre><code># rpm -ivh jdk-8u101-linux-x64.rpm
+</code></pre><p>JDK默认安装在/usr/java中<br><img src="http://i.imgur.com/JkL4A7q.jpg" alt="安装JDK"></p>
+<p>4、配置环境变量<br>修改系统环境变量文件</p>
+<pre><code># vi /etc/profile
+</code></pre><p>向文件里面追加以下内容：</p>
 <blockquote>
-<p>the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok<br>configuration file /usr/local/nginx/conf/nginx.conf test is successful</p>
+<p>JAVA_HOME=/usr/java/jdk1.7.0<br>JRE_HOME=/usr/java/jdk1.7.0/jre<br>PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin<br>CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib<br>export JAVA_HOME JRE_HOME PATH CLASSPATH</p>
 </blockquote>
-<p>测试成功, 重启nginx,输入命令：<br><code>nginx -s reload</code><br>重启之后访问<a href="http://www.bnuz163.com" target="_blank" rel="external">www.bnuz163.com</a>和<a href="http://moto.bnuz163.com" target="_blank" rel="external">moto.bnuz163.com</a>就是两个不同的站点啦！</p>
+<p>使修改生效</p>
+<pre><code># source /etc/profile   //使修改立即生效
+#        echo $PATH   //查看PATH值
+</code></pre><p>查看系统环境状态</p>
+<pre><code># echo $PATH
+/usr/local/cmake/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/java/jdk1.7.0/bin:/usr/java/jdk1.7.0/jre/bin:/root/bin
+</code></pre><p>5、验证安装</p>
+<pre><code># java
+# javac
+# java -version
+</code></pre><p>　<br>另外可能安装或验证过程中遇到以下情况：<br>a、<em>bad ELF interpreter:No such file ordirectory</em><br><strong>是因为64位系统中安装了32位程序，解决方法：</strong></p>
+<pre><code># yum install glibc.i686
+</code></pre><p>参考链接：<a href="http://www.111cn.net/sys/linux/55374.htm" target="_blank" rel="external">http://www.111cn.net/sys/linux/55374.htm</a></p>
+<p>b、<em>Error occurred during initialization of VM java/lang/NoClassDefFoundError: java/lang/Object</em><br><strong>是因为/usr/java/jdk/lib目录下没有tools.jar或/usr/java/jre/lib目录下没有rt.jar。（从/usr/java/jdk1.8.0_101/jre/lib目录下复制rt.jar到/usr/java/jre/lib）</strong><br>参考链接：<a href="http://babyhe.blog.51cto.com/1104064/1045485/" target="_blank" rel="external">http://babyhe.blog.51cto.com/1104064/1045485/</a></p>
 
       
     </div>
@@ -414,13 +324,13 @@ http {
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/15/Nginx系列-配置多个站点的方法/">Nginx系列-配置多个站点的方法</a></p>
+        <p><span>本文标题:</span><a href="/2016/09/25/在Linux中安装与配置JDK-8/">在Linux中安装与配置JDK-8</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
-        <p><span>发布时间:</span>2016年08月15日 - 16时03分</p>
-        <!-- <p><span>最后更新:</span>2016年09月11日 - 21时44分</p> -->
+        <p><span>发布时间:</span>2016年09月25日 - 09时56分</p>
+        <!-- <p><span>最后更新:</span>2016年09月25日 - 11时03分</p> -->
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/15/Nginx系列-配置多个站点的方法/" title="Nginx系列-配置多个站点的方法">http://shinejstar.github.io/2016/08/15/Nginx系列-配置多个站点的方法/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/15/Nginx系列-配置多个站点的方法/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/25/在Linux中安装与配置JDK-8/" title="在Linux中安装与配置JDK-8">http://shinejstar.github.io/2016/09/25/在Linux中安装与配置JDK-8/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/09/25/在Linux中安装与配置JDK-8/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -433,18 +343,9 @@ http {
 
 <nav id="article-nav">
   
-    <a href="/2016/09/12/排序算法-选择排序/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          排序算法-选择排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/08/13/Nginx系列-301重定向设置的两种方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Nginx系列-301重定向设置的两种方法</div>
+    <a href="/2016/09/12/排序算法-冒泡排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序算法-冒泡排序</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -455,7 +356,7 @@ http {
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#具体过程"><span class="toc-number">1.</span> <span class="toc-text">具体过程</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#部署步骤"><span class="toc-number">1.</span> <span class="toc-text">部署步骤</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -503,7 +404,7 @@ http {
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/08/15/Nginx系列-配置多个站点的方法/" data-title="Nginx系列-配置多个站点的方法" data-url="http://shinejstar.github.io/2016/08/15/Nginx系列-配置多个站点的方法/"></div>
+    <div class="ds-thread" data-thread-key="2016/09/25/在Linux中安装与配置JDK-8/" data-title="在Linux中安装与配置JDK-8" data-url="http://shinejstar.github.io/2016/09/25/在Linux中安装与配置JDK-8/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -526,13 +427,11 @@ http {
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/12/排序算法-选择排序/" title="上一篇: 排序算法-选择排序">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/08/13/Nginx系列-301重定向设置的两种方法/" title="下一篇: Nginx系列-301重定向设置的两种方法">
+            <a href="/2016/09/12/排序算法-冒泡排序/" title="下一篇: 排序算法-冒泡排序">
                 <i class="fa fa-angle-right"></i>
             </a>
         
