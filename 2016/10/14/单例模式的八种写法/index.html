@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://shinejstar.github.io/2016/10/14/单例模式的八种写法/index.html">
 <meta property="og:site_name" content="JStar's Blog">
 <meta property="og:description" content="单例模式是最常用到的设计模式之一，其定义是单例对象的类只能允许一个实例存在。一般介绍单例模式的书籍都会提到 饿汉式 和 懒汉式 这两种实现方式。">
-<meta property="og:updated_time" content="2016-10-14T09:45:02.546Z">
+<meta property="og:updated_time" content="2016-10-14T09:48:36.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式的八种写法">
 <meta name="twitter:description" content="单例模式是最常用到的设计模式之一，其定义是单例对象的类只能允许一个实例存在。一般介绍单例模式的书籍都会提到 饿汉式 和 懒汉式 这两种实现方式。">
@@ -396,20 +396,20 @@
 <p>　　类的静态属性只会在第一次加载类的时候初始化，所以在这里，JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</p>
 <p>　　优点：避免了线程不安全，延迟加载，效率高。</p>
 <h3 id="8、枚举-推荐用"><a href="#8、枚举-推荐用" class="headerlink" title="8、枚举[推荐用]"></a>8、枚举[推荐用]</h3><pre><code>public enum Singleton {
-    INSTANCE(new Test);
+    INSTANCE(new Bean);
 
-    private Test value;
+    private Bean bean;
 
-    private Singeton(Test value) {
-        this.value = value;
+    private Singeton(Bean bean) {
+        this.bean = bean;
     }
 
-    public void getValue() {
-        return this.value;
+    public void getBean() {
+        return this.bean;
     }
 
     public String toString() {
-        return this.value;
+        return this.bean;
     }        
 
 }
@@ -425,7 +425,7 @@
         <p><span>本文标题:</span><a href="/2016/10/14/单例模式的八种写法/">单例模式的八种写法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
         <p><span>发布时间:</span>2016年10月14日 - 17时00分</p>
-        <!-- <p><span>最后更新:</span>2016年10月14日 - 17时45分</p> -->
+        <!-- <p><span>最后更新:</span>2016年10月14日 - 17时48分</p> -->
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/10/14/单例模式的八种写法/" title="单例模式的八种写法">http://shinejstar.github.io/2016/10/14/单例模式的八种写法/</a>
             <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/10/14/单例模式的八种写法/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
