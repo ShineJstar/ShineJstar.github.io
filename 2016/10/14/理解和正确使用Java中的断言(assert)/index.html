@@ -3,27 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>在Linux中安装Redis-3.2.3 | JStar&#39;s Blog</title>
+  <title>理解和正确使用Java中的断言(assert) | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。项目需要用来存储经常变化的持久化数据和共享集群服务器中的web session。现在在CentOS 7.2中安装Redis-3.2.3。">
+  <meta name="description" content="断言(assert)作为一种软件调试的方法，提供了一种在代码中进行正确性检查的机制，目前很多开发语言都支持这种机制。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Linux中安装Redis-3.2.3">
-<meta property="og:url" content="http://shinejstar.github.io/2016/08/25/在Linux中安装Redis-3.2.3/index.html">
+<meta property="og:title" content="理解和正确使用Java中的断言(assert)">
+<meta property="og:url" content="http://shinejstar.github.io/2016/10/14/理解和正确使用Java中的断言(assert)/index.html">
 <meta property="og:site_name" content="JStar's Blog">
-<meta property="og:description" content="Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。项目需要用来存储经常变化的持久化数据和共享集群服务器中的web session。现在在CentOS 7.2中安装Redis-3.2.3。">
-<meta property="og:image" content="http://i.imgur.com/IbnVqHs.jpg">
-<meta property="og:image" content="http://i.imgur.com/SExzuL4.jpg">
-<meta property="og:image" content="http://i.imgur.com/F5bPn0C.jpg">
-<meta property="og:image" content="http://i.imgur.com/isygjzs.jpg">
-<meta property="og:image" content="http://i.imgur.com/ZIK16s6.jpg">
-<meta property="og:image" content="http://i.imgur.com/fGT1SST.jpg">
-<meta property="og:image" content="http://i.imgur.com/2Eq6AXD.jpg">
-<meta property="og:image" content="http://i.imgur.com/lCNysyW.jpg">
-<meta property="og:updated_time" content="2016-09-25T11:47:05.159Z">
+<meta property="og:description" content="断言(assert)作为一种软件调试的方法，提供了一种在代码中进行正确性检查的机制，目前很多开发语言都支持这种机制。">
+<meta property="og:updated_time" content="2016-10-17T02:02:35.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Linux中安装Redis-3.2.3">
-<meta name="twitter:description" content="Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。项目需要用来存储经常变化的持久化数据和共享集群服务器中的web session。现在在CentOS 7.2中安装Redis-3.2.3。">
-<meta name="twitter:image" content="http://i.imgur.com/IbnVqHs.jpg">
+<meta name="twitter:title" content="理解和正确使用Java中的断言(assert)">
+<meta name="twitter:description" content="断言(assert)作为一种软件调试的方法，提供了一种在代码中进行正确性检查的机制，目前很多开发语言都支持这种机制。">
   
     <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
   
@@ -241,11 +232,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-在Linux中安装Redis-3.2.3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-理解和正确使用Java中的断言(assert)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/25/在Linux中安装Redis-3.2.3/" class="article-date">
-      <time datetime="2016-08-25T01:22:32.000Z" itemprop="datePublished">2016-08-25</time>
+      <a href="/2016/10/14/理解和正确使用Java中的断言(assert)/" class="article-date">
+      <time datetime="2016-10-14T08:00:00.000Z" itemprop="datePublished">2016-10-14</time>
 </a>
     </div>
   
@@ -258,7 +249,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      在Linux中安装Redis-3.2.3
+      理解和正确使用Java中的断言(assert)
     </h1>
   
 
@@ -269,7 +260,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -279,130 +270,47 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>　　Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。项目需要用来存储经常变化的持久化数据和共享集群服务器中的web session。现在在CentOS 7.2中安装Redis-3.2.3。</p>
+        <p>　　断言(assert)作为一种软件调试的方法，提供了一种在代码中进行正确性检查的机制，目前很多开发语言都支持这种机制。</p>
 <a id="more"></a>
-<h2 id="下载-amp-解压"><a href="#下载-amp-解压" class="headerlink" title="下载&amp;解压"></a>下载&amp;解压</h2><p>查看最新版下载地址：<a href="http://download.redis.io/releases/" target="_blank" rel="external">http://download.redis.io/releases/</a></p>
-<pre><code># cd /usr/local
-# wget http://download.redis.io/releases/redis-3.2.3.tar.gz
-# tar zxvf redis-3.2.3.tar.gz  
-</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code># cd /usr/local/redis-3.2.3
-# make
-</code></pre><p>make之后，我们会得到src目录下的可执行文件：<br>　　redis-server：Redis服务器的daemon启动程序<br>　　redis-cli：Redis命令行操作工具。或者通过telnet进行纯文本协议操作<br>　　redis-benchmark：Redis性能测试工具，测试Redis在你的系统及你的配置下的读写性能<br>　<br>make完成之后，有个提示可以make test检测是否安装正确，可以执行以下： </p>
-<pre><code># make test
-</code></pre><p>若出现检测不提示如下<br><img src="http://i.imgur.com/IbnVqHs.jpg" alt="make error"><br>就需要安装tcl，安装方法：</p>
-<pre><code>wget http://downloads.sourceforge.net/tcl/tcl8.6.0-src.tar.gz
-tar xzvf tcl8.6.1-src.tar.gz 
-cd tcl8.6.0/
-
-cd unix &amp;&amp;
-./configure --prefix=/usr \
-            --mandir=/usr/share/man \
-            --without-tzdata \
-            $([ $(uname -m) = x86_64 ] &amp;&amp; echo --enable-64bit) &amp;&amp;
-make &amp;&amp;
-
-sed -e &quot;s@^\(TCL_SRC_DIR=&apos;\).*@\1/usr/include&apos;@&quot; \
-    -e &quot;/TCL_B/s@=&apos;\(-L\)\?.*unix@=&apos;\1/usr/lib@&quot; \
-    -i tclConfig.sh
-
-make install &amp;&amp;
-make install-private-headers &amp;&amp;
-ln -v -sf tclsh8.6 /usr/bin/tclsh &amp;&amp;
-chmod -v 755 /usr/lib/libtcl8.6.so
-</code></pre><p>还有种另外方法，参考链接：<a href="http://blog.csdn.net/luyee2010/article/details/18766911" target="_blank" rel="external">http://blog.csdn.net/luyee2010/article/details/18766911</a><br>　<br>make test检测正确后再执行make install，貌似我需要的可执行文件，安装到了/usr/local/bin：</p>
-<pre><code># cd /usr/local/redis-3.2.3
-# make install
-</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>1、复制配置文件，因为一台服务器可能需要启动多个redis，所以把配置文件复制到conf目录下，按照端口命名配置文件，启动多个只要修改不同端口号。</p>
-<pre><code># cd /usr/local/redis-3.2.3
-# mkdir ./conf
-# cp redis.conf ./conf/redis-6379.conf
-</code></pre><p>2、修改Redis配置。</p>
-<pre><code># vi conf/redis-6379.conf 
-</code></pre><p>常用配置：</p>
+<p>　　断言是为了方便调试程序，并不是发布程序的组成部分。理解这一点是很关键的。<br>默认情况下，JVM是关闭断言的。因此如果想使用断言调试程序，需要手动打开断言功能。在命令行模式下运行Java程序时可增加参数-enableassertions或者-ea打开断言。可通过-disableassertions或者-da关闭断言(默认情况,可有可无)。</p>
+<blockquote>
 <ol>
-<li>daemonize：是否是守护进程（no|yes），改为yes</li>
-<li>port：Redis对外端口号，默认6379，需要启动多个redis，只需要修改成不同端口。</li>
-<li>logfile：Redis系统日志，查看控制台打印的日志。</li>
-<li>requirepass：Redis连接密码，如修改成requirepass 123456。</li>
-<li>maxmemory：可以分配的最大内存，配置大小要小于物理内存，留有足够的内存供系统使用，防止数据暴涨，导致内存吃紧，SWAP加剧，直接宕机。如改成maxmemory 512mb。</li>
-<li>save 60 1000 #当时间间隔超过60秒，或存储超过1000条记录时，进行持久化。</li>
+<li>Run -&gt; Run Configurations -&gt; Arguments页签 -&gt; VM arguments文本框中加上断言开启的标志:-enableassertions 或者-ea 就可以了</li>
+<li>在myEclipse中,Windows -&gt; Preferences -&gt;Java -&gt;Installed JREs -&gt;点击正使用的JDK -&gt;Edit -&gt;Default VM Arguments文本框中输入:-ea</li>
 </ol>
-<p>更多配置：</p>
-<ul>
-<li>daemonize：是否以后台daemon（守护进程）方式运行</li>
-<li>pidfile：pid文件位置</li>
-<li>port：监听的端口号</li>
-<li>timeout：请求超时时间</li>
-<li>loglevel：log信息级别</li>
-<li>logfile：log文件位置</li>
-<li>databases：开启数据库的数量</li>
-<li>save <em> </em>：保存快照的频率，第一个<em>表示多长时间（秒级），第三个</em>表示执行多少次写操作。在一定时间内执行一定数量的写操作时，自动保存快照。可设置多个条件。</li>
-<li>rdbcompression：是否使用压缩</li>
-<li>dbfilename：数据快照文件名（只是文件名，不包括目录）</li>
-<li>dir：数据快照的保存目录（这个是目录）</li>
-<li>appendonly：是否开启appendonlylog，开启的话每次写操作会记一条log，这会提高数据抗风险能力，但影响效率。</li>
-<li>appendfsync：appendonlylog如何同步到磁盘（三个选项，分别是每次写都强制调用fsync、每秒启用一次fsync、不调用fsync等待系统自己同步）</li>
-<li>slaveof <masterip> <masterport> ：主从配置，在redis-slave上配置master的ip port，即可。</masterport></masterip></li>
-</ul>
-<p>3、查看Redis配置，去除了注释行和空行。</p>
-<pre><code># cat conf/redis-6379.conf | grep -v ‘#’ | grep -v ‘^$’
-</code></pre><h2 id="调优"><a href="#调优" class="headerlink" title="调优"></a>调优</h2><p>1、/etc/sysctl.conf<br>前面启动Redis时，看到如下警告：</p>
-<blockquote>
-<p>[1958] 13 Aug 16:18:24 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add ‘vm.overcommit_memory = 1’ to /etc/sysctl.conf and then reboot or run the command ‘sysctl vm.overcommit_memory=1’ for this to take effect.</p>
 </blockquote>
-<p>需要修改/etc/sysctl.conf文件：</p>
-<pre><code># vim /etc/sysctl.conf  
-</code></pre><p>打开后再末尾追加：</p>
+<p>　　断言的使用：<br>断言是通过关键字assert来定义的，一般的，它有两种形式。</p>
+<pre><code>1. assert &lt;bool expression&gt;;       比如     boolean isStudent = false; assert isStudent;
+2. assert &lt;bool expression&gt; : &lt;message&gt;;    比如  boolean isSafe = false;  assert isSafe : &quot;Not Safe at all&quot;;
+</code></pre><p>第一种形式：</p>
+<pre><code>public class AssertionTest {  
+
+    public static void main(String[] args) {  
+
+        boolean isSafe = false;  
+        assert isSafe;  
+        System.out.println(&quot;断言通过!&quot;);  
+    }  
+}  
+</code></pre><p>输出结果：</p>
 <blockquote>
-<p>vm.overcommit_memory = 1  </p>
+<p>Exception in thread “main” java.lang.AssertionError<br>    at AssertionTest.main(AssertionTest.java:8)  </p>
 </blockquote>
-<p>然后执行sysctl vm.overcommit_ry=1，使之生效：  </p>
-<pre><code># sysctl vm.overcommit_memory=1  
-</code></pre><p>2、/proc/sys/vm/overcommit_memory<br>为了调整内存分配策略，需要配置/proc/sys/vm/overcommit_memory</p>
-<ul>
-<li>0， 表示内核将检查是否有足够的可用内存供应用进程使用；如果有足够的可用内存，内存申请允许；否则，内存申请失败，并把错误返回给应用进程。</li>
-<li>1， 表示内核允许分配所有的物理内存，而不管当前的内存状态如何。</li>
-<li>2， 表示内核允许分配超过所有物理内存和交换空间总和的内存</li>
-</ul>
-<p>默认为0，如果内存情况比较紧张的话，设为1：</p>
-<pre><code># echo 1 &gt; /proc/sys/vm/overcommit_memory  
-</code></pre><h2 id="运行-amp-关闭"><a href="#运行-amp-关闭" class="headerlink" title="运行&amp;关闭"></a>运行&amp;关闭</h2><p>1、运行Redis</p>
-<pre><code># redis-server /usr/local/redis-3.2.3/conf/redis-6379.conf 
-</code></pre><p>2、关闭Redis<br>　　四种关闭操作，其中shutdown默认持久化后退出，shutdown save为显式持久化后退出，shutdown nosave为不持久化退出：</p>
-<pre><code># redis-cli shutdown  //默认关闭host：127.0.0.1 端口：6379的Redis
-# redis-cli -h 127.0.0.1 shutdown //关闭host：127.0.0.1 默认端口：6379的Redis
-# redis-cli -p 6378 shutdown  //关闭默认host：127.0.0.1 端口：6378的Redis
-# redis-cli -h 127.0.0.1 -p 6377 shutdown //关闭host：127.0。0.1，端口：6377 的Redis
-</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>1、通过客户端命令redis-cli访问Redis：</p>
-<pre><code># redis-cli  
-# redis&gt; set name jstar
-OK  
-# redis&gt; get name   
-&quot;jstar&quot; 
-</code></pre><p>2、进行Redis性能测试：</p>
-<pre><code># redis-benchmark -l  
-</code></pre><p>这个测试会一直进行下去，直到你按Ctrl+C。</p>
-<h2 id="redis-cli常用命令"><a href="#redis-cli常用命令" class="headerlink" title="redis-cli常用命令"></a>redis-cli常用命令</h2><p>1、客户端命令redis-cli访问Redis</p>
-<pre><code># redis-cli -h 127.0.0.1 -p 6379
-</code></pre><p><img src="http://i.imgur.com/SExzuL4.jpg" alt="redis-cli"></p>
-<p>2、添加key为a，value为b的字符串</p>
-<pre><code>redis&gt; set a b 
-</code></pre><p><img src="http://i.imgur.com/F5bPn0C.jpg" alt="redis-cli set"></p>
-<p>3、获取key为a的字符串value</p>
-<pre><code>redis&gt; get a
-</code></pre><p><img src="http://i.imgur.com/isygjzs.jpg" alt="get a"></p>
-<p>4、整数k自增1</p>
-<pre><code>redis&gt; incr k
-</code></pre><p><img src="http://i.imgur.com/ZIK16s6.jpg" alt="redis-cli incr"></p>
-<p>5、同时获取多个key的value</p>
-<pre><code>redis&gt; mget a i k 
-</code></pre><p><img src="http://i.imgur.com/fGT1SST.jpg" alt="redis-cli mget"></p>
-<p>6、查看redis保存着多少个键值对</p>
-<pre><code>redis-cli dbsize
-</code></pre><p><img src="http://i.imgur.com/2Eq6AXD.jpg" alt="redis-cli dbsize"></p>
-<p>7、清空所有Redis保存的键值对</p>
-<pre><code>redis&gt; flushall
-</code></pre><p><img src="http://i.imgur.com/lCNysyW.jpg" alt="redis-cli flushall"></p>
+<p>第二种形式：</p>
+<pre><code>public class AssertionTest {  
+
+    public static void main(String[] args) {  
+
+        boolean isSafe = false;  
+        assert isSafe : &quot;Not safe at all&quot;;  
+        System.out.println(&quot;断言通过!&quot;);  
+    }  
+}  
+</code></pre><p>输出结果：</p>
+<blockquote>
+<p>Exception in thread “main” java.lang.AssertionError: Not safe at all<br>    at AssertionTest.main(AssertionTest.java:7)  </p>
+</blockquote>
+<p>第二种形式和第一种的区别在于后者可以指定错误信息。</p>
 
       
     </div>
@@ -411,13 +319,13 @@ OK
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/25/在Linux中安装Redis-3.2.3/">在Linux中安装Redis-3.2.3</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/14/理解和正确使用Java中的断言(assert)/">理解和正确使用Java中的断言(assert)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
-        <p><span>发布时间:</span>2016年08月25日 - 09时22分</p>
-        <!-- <p><span>最后更新:</span>2016年09月25日 - 19时47分</p> -->
+        <p><span>发布时间:</span>2016年10月14日 - 16时00分</p>
+        <!-- <p><span>最后更新:</span>2016年10月17日 - 10时02分</p> -->
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/25/在Linux中安装Redis-3.2.3/" title="在Linux中安装Redis-3.2.3">http://shinejstar.github.io/2016/08/25/在Linux中安装Redis-3.2.3/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/25/在Linux中安装Redis-3.2.3/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/14/理解和正确使用Java中的断言(assert)/" title="理解和正确使用Java中的断言(assert)">http://shinejstar.github.io/2016/10/14/理解和正确使用Java中的断言(assert)/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/10/14/理解和正确使用Java中的断言(assert)/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -430,18 +338,18 @@ OK
 
 <nav id="article-nav">
   
-    <a href="/2016/09/01/Nginx系列-使用Nginx中遇过的坑/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/14/单例模式的八种写法/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Nginx系列-使用Nginx中遇过的坑
+          单例模式的八种写法
         
       </div>
     </a>
   
   
-    <a href="/2016/08/24/在Linux中安装Nginx-1.10.1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在Linux中安装Nginx-1.10.1</div>
+    <a href="/2016/09/08/Java读写Excel文件之jxl技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java读写Excel文件之jxl技术</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -452,7 +360,7 @@ OK
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载-amp-解压"><span class="toc-number">1.</span> <span class="toc-text">下载&解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调优"><span class="toc-number">4.</span> <span class="toc-text">调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行-amp-关闭"><span class="toc-number">5.</span> <span class="toc-text">运行&关闭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">6.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redis-cli常用命令"><span class="toc-number">7.</span> <span class="toc-text">redis-cli常用命令</span></a></li></ol>
+    
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -500,7 +408,7 @@ OK
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/08/25/在Linux中安装Redis-3.2.3/" data-title="在Linux中安装Redis-3.2.3" data-url="http://shinejstar.github.io/2016/08/25/在Linux中安装Redis-3.2.3/"></div>
+    <div class="ds-thread" data-thread-key="2016/10/14/理解和正确使用Java中的断言(assert)/" data-title="理解和正确使用Java中的断言(assert)" data-url="http://shinejstar.github.io/2016/10/14/理解和正确使用Java中的断言(assert)/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -523,13 +431,13 @@ OK
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/01/Nginx系列-使用Nginx中遇过的坑/" title="上一篇: Nginx系列-使用Nginx中遇过的坑">
+            <a href="/2016/10/14/单例模式的八种写法/" title="上一篇: 单例模式的八种写法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/08/24/在Linux中安装Nginx-1.10.1/" title="下一篇: 在Linux中安装Nginx-1.10.1">
+            <a href="/2016/09/08/Java读写Excel文件之jxl技术/" title="下一篇: Java读写Excel文件之jxl技术">
                 <i class="fa fa-angle-right"></i>
             </a>
         
