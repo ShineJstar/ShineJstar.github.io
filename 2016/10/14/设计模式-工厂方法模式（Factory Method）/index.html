@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | JStar&#39;s Blog</title>
+  <title>设计模式-工厂方法模式（Factory Method） | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="工厂模式适合：凡是出现了大量的产品需要创建，并且具有共同的接口时，可以通过工厂方法模式进行创建。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://shinejstar.github.io/2016/03/08/hello-world/index.html">
+<meta property="og:title" content="设计模式-工厂方法模式（Factory Method）">
+<meta property="og:url" content="http://shinejstar.github.io/2016/10/14/设计模式-工厂方法模式（Factory Method）/index.html">
 <meta property="og:site_name" content="JStar's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2016-09-11T06:10:47.838Z">
+<meta property="og:description" content="工厂模式适合：凡是出现了大量的产品需要创建，并且具有共同的接口时，可以通过工厂方法模式进行创建。">
+<meta property="og:image" content="http://shinejstar.github.io/images/设计模式-工厂方法模式（Factory Method）/普通工厂模式.png">
+<meta property="og:image" content="http://shinejstar.github.io/images/设计模式-工厂方法模式（Factory Method）/多个工厂方法模式.jpg">
+<meta property="og:updated_time" content="2016-10-24T03:18:37.464Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="设计模式-工厂方法模式（Factory Method）">
+<meta name="twitter:description" content="工厂模式适合：凡是出现了大量的产品需要创建，并且具有共同的接口时，可以通过工厂方法模式进行创建。">
+<meta name="twitter:image" content="http://shinejstar.github.io/images/设计模式-工厂方法模式（Factory Method）/普通工厂模式.png">
   
     <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
   
@@ -232,11 +235,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-设计模式-工厂方法模式（Factory Method）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/08/hello-world/" class="article-date">
-      <time datetime="2016-03-08T04:03:15.000Z" itemprop="datePublished">2016-03-08</time>
+      <a href="/2016/10/14/设计模式-工厂方法模式（Factory Method）/" class="article-date">
+      <time datetime="2016-10-14T09:00:00.000Z" itemprop="datePublished">2016-10-14</time>
 </a>
     </div>
   
@@ -249,7 +252,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      设计模式-工厂方法模式（Factory Method）
     </h1>
   
 
@@ -259,6 +262,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -266,17 +273,96 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>　　工厂模式适合：凡是出现了大量的产品需要创建，并且具有共同的接口时，可以通过工厂方法模式进行创建。</p>
 <a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<h3 id="一、普通工厂模式，就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图："><a href="#一、普通工厂模式，就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图：" class="headerlink" title="一、普通工厂模式，就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图："></a>一、普通工厂模式，就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图：</h3><p><img src="/images/设计模式-工厂方法模式（Factory Method）/普通工厂模式.png" alt="关系图"></p>
+<p>举例如下：（我们举一个发送邮件和短信的例子）</p>
+<pre><code>interface Sender {  
+    public void send();  
+}   
 
+class MailSender implements Sender {  
+    @Override  
+    public void send() {  
+        System.out.println(&quot;this is mailsender!&quot;);  
+    }  
+}
+
+class SmsSender implements Sender {  
+
+    @Override  
+    public void send() {  
+        System.out.println(&quot;this is sms sender!&quot;);  
+    }  
+} 
+
+class SendFactory {  
+
+    public static Sender produce(String type) {  
+        if (&quot;mail&quot;.equals(type)) {  
+            return new MailSender();  
+        } else if (&quot;sms&quot;.equals(type)) {  
+            return new SmsSender();  
+        } else {  
+            System.out.println(&quot;请输入正确的类型!&quot;);  
+            return null;  
+        }  
+    }  
+} 
+
+public class FactoryDemo {   
+
+    public static void main(String[] args) {   
+        Sender a = null; // 定义接口对象  
+        a = SendFactory.produce(&quot;mail&quot;); // 通过工厂获取实例  
+        if (a != null) { // 判断对象是否为空  
+            a.send(); // 调用方法   
+        }   
+    }   
+}  
+</code></pre><h3 id="二、多个工厂方法模式，是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。关系图："><a href="#二、多个工厂方法模式，是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。关系图：" class="headerlink" title="二、多个工厂方法模式，是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。关系图："></a>二、多个工厂方法模式，是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。关系图：</h3><p><img src="/images/设计模式-工厂方法模式（Factory Method）/多个工厂方法模式.jpg" alt="多个工厂方法模式"></p>
+<p>将上面的代码做下修改，改动下SendFactory类就行，如下：</p>
+<pre><code>interface Sender {  
+    public void send();  
+}   
+
+class MailSender implements Sender {  
+    @Override  
+    public void send() {  
+        System.out.println(&quot;this is mailsender!&quot;);  
+    }  
+}
+
+class SmsSender implements Sender {  
+
+    @Override  
+    public void send() {  
+        System.out.println(&quot;this is sms sender!&quot;);  
+    }  
+} 
+
+class SendFactory {  
+   public Sender produceMail(){  
+        return new MailSender();  
+    }  
+
+    public Sender produceSms(){  
+        return new SmsSender();  
+    }  
+}
+
+public class FactoryDemo {   
+
+    public static void main(String[] args) {   
+        Sender a = null; // 定义接口对象  
+        a = SendFactory.produceMail(); // 通过工厂获取实例  
+        a = SendFactory.produceSms(); // 通过工厂获取实例
+        if (a != null) { // 判断对象是否为空  
+            a.send(); // 调用方法   
+        }   
+    }   
+}  
+</code></pre>
       
     </div>
     
@@ -284,13 +370,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/08/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/14/设计模式-工厂方法模式（Factory Method）/">设计模式-工厂方法模式（Factory Method）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
-        <p><span>发布时间:</span>2016年03月08日 - 12时03分</p>
-        <!-- <p><span>最后更新:</span>2016年09月11日 - 14时10分</p> -->
+        <p><span>发布时间:</span>2016年10月14日 - 17时00分</p>
+        <!-- <p><span>最后更新:</span>2016年10月24日 - 11时18分</p> -->
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/08/hello-world/" title="Hello World">http://shinejstar.github.io/2016/03/08/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/03/08/hello-world/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/14/设计模式-工厂方法模式（Factory Method）/" title="设计模式-工厂方法模式（Factory Method）">http://shinejstar.github.io/2016/10/14/设计模式-工厂方法模式（Factory Method）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/10/14/设计模式-工厂方法模式（Factory Method）/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -303,15 +389,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          SpringMVC拦截器（资源和权限管理）
-        
-      </div>
-    </a>
   
+    <a href="/2016/10/14/设计模式-单例模式的八种写法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式-单例模式的八种写法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -320,7 +402,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、普通工厂模式，就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图："><span class="toc-number">1.</span> <span class="toc-text">一、普通工厂模式，就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、多个工厂方法模式，是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。关系图："><span class="toc-number">2.</span> <span class="toc-text">二、多个工厂方法模式，是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。关系图：</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -368,7 +450,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/08/hello-world/" data-title="Hello World" data-url="http://shinejstar.github.io/2016/03/08/hello-world/"></div>
+    <div class="ds-thread" data-thread-key="2016/10/14/设计模式-工厂方法模式（Factory Method）/" data-title="设计模式-工厂方法模式（Factory Method）" data-url="http://shinejstar.github.io/2016/10/14/设计模式-工厂方法模式（Factory Method）/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -391,13 +473,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/" title="上一篇: SpringMVC拦截器（资源和权限管理）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/10/14/设计模式-单例模式的八种写法/" title="下一篇: 设计模式-单例模式的八种写法">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/10/14/设计模式-工厂方法模式（Factory Method）/">设计模式-工厂方法模式（Factory Method）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/14/设计模式-单例模式的八种写法/">设计模式-单例模式的八种写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/13/Java常用设计模式介绍/">Java常用设计模式介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/08/理解和正确使用Java中的断言(assert)/">理解和正确使用Java中的断言(assert)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/Java读写Excel文件之jxl技术/">Java读写Excel文件之jxl技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/Java读写Excel文件之poi技术/">Java读写Excel文件之poi技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/Nginx系列-使用Nginx中遇过的坑/">Nginx系列-使用Nginx中遇过的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/在Linux中安装Redis-3.2.3/">在Linux中安装Redis-3.2.3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/24/在Linux中安装Nginx-1.10.1/">在Linux中安装Nginx-1.10.1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/22/在Linux中安装与配置Tomcat-8/">在Linux中安装与配置Tomcat-8</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/21/在Linux中安装与配置JDK-8/">在Linux中安装与配置JDK-8</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/Nginx系列-配置多个站点的方法/">Nginx系列-配置多个站点的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/Nginx系列-301重定向设置的两种方法/">Nginx系列-301重定向设置的两种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/Nginx系列-基础功能配置/">Nginx系列-基础功能配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-冒泡排序/">排序算法-冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-希尔排序/">排序算法-希尔排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-插入排序/">排序算法-插入排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-选择排序/">排序算法-选择排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/SpringMVC拦截器（资源和权限管理）/">SpringMVC拦截器（资源和权限管理）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/hello-world/">Hello World</a></li></ul>
