@@ -3,20 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>在Linux中安装Nginx-1.10.1 | JStar&#39;s Blog</title>
+  <title>初识中间件之消息服务 | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。现在项目需要搭载集群服务器，故采用Nginx反向代理负载均衡来实现。安装环境CentOS 7.2，安装Nginx版本1.10.1。">
+  <meta name="description" content="一、消息队列概述消息队列中间件是分布式系统中重要的组件，主要解决应用耦合，异步消息，流量削锋等问题。实现高性能，高可用，可伸缩和最终一致性架构。是大型分布式系统不可缺少的中间件。目前在生产环境，使用较多的消息队列有ActiveMQ，RabbitMQ，ZeroMQ，Kafka，MetaMQ，RocketMQ等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Linux中安装Nginx-1.10.1">
-<meta property="og:url" content="http://shinejstar.github.io/2016/08/24/在Linux中安装Nginx-1.10.1/index.html">
+<meta property="og:title" content="初识中间件之消息服务">
+<meta property="og:url" content="http://shinejstar.github.io/2016/07/28/初识中间件之消息服务/index.html">
 <meta property="og:site_name" content="JStar's Blog">
-<meta property="og:description" content="Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。现在项目需要搭载集群服务器，故采用Nginx反向代理负载均衡来实现。安装环境CentOS 7.2，安装Nginx版本1.10.1。">
-<meta property="og:image" content="http://i.imgur.com/sOQR5tu.jpg">
-<meta property="og:updated_time" content="2016-09-25T11:47:01.520Z">
+<meta property="og:description" content="一、消息队列概述消息队列中间件是分布式系统中重要的组件，主要解决应用耦合，异步消息，流量削锋等问题。实现高性能，高可用，可伸缩和最终一致性架构。是大型分布式系统不可缺少的中间件。目前在生产环境，使用较多的消息队列有ActiveMQ，RabbitMQ，ZeroMQ，Kafka，MetaMQ，RocketMQ等。">
+<meta property="og:image" content="http://i.imgur.com/opUoeL3.png">
+<meta property="og:image" content="http://i.imgur.com/yo0jvuq.png">
+<meta property="og:image" content="http://i.imgur.com/z2L0QPD.png">
+<meta property="og:image" content="http://i.imgur.com/RCmzICK.png">
+<meta property="og:image" content="http://i.imgur.com/wtgjLL0.png">
+<meta property="og:image" content="http://i.imgur.com/Z0RWVtD.png">
+<meta property="og:image" content="http://i.imgur.com/cKUSVlf.png">
+<meta property="og:image" content="http://i.imgur.com/s84gF9P.png">
+<meta property="og:image" content="http://i.imgur.com/k2YXK6r.png">
+<meta property="og:image" content="http://i.imgur.com/Vi3Punv.png">
+<meta property="og:image" content="http://i.imgur.com/XJiPchf.jpg">
+<meta property="og:image" content="http://i.imgur.com/ASUst1F.jpg">
+<meta property="og:updated_time" content="2016-10-26T09:57:26.804Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Linux中安装Nginx-1.10.1">
-<meta name="twitter:description" content="Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。现在项目需要搭载集群服务器，故采用Nginx反向代理负载均衡来实现。安装环境CentOS 7.2，安装Nginx版本1.10.1。">
-<meta name="twitter:image" content="http://i.imgur.com/sOQR5tu.jpg">
+<meta name="twitter:title" content="初识中间件之消息服务">
+<meta name="twitter:description" content="一、消息队列概述消息队列中间件是分布式系统中重要的组件，主要解决应用耦合，异步消息，流量削锋等问题。实现高性能，高可用，可伸缩和最终一致性架构。是大型分布式系统不可缺少的中间件。目前在生产环境，使用较多的消息队列有ActiveMQ，RabbitMQ，ZeroMQ，Kafka，MetaMQ，RocketMQ等。">
+<meta name="twitter:image" content="http://i.imgur.com/opUoeL3.png">
   
     <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
   
@@ -234,11 +245,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-在Linux中安装Nginx-1.10.1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-初识中间件之消息服务" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/24/在Linux中安装Nginx-1.10.1/" class="article-date">
-      <time datetime="2016-08-24T08:26:52.000Z" itemprop="datePublished">2016-08-24</time>
+      <a href="/2016/07/28/初识中间件之消息服务/" class="article-date">
+      <time datetime="2016-07-28T09:23:42.000Z" itemprop="datePublished">2016-07-28</time>
 </a>
     </div>
   
@@ -251,7 +262,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      在Linux中安装Nginx-1.10.1
+      初识中间件之消息服务
     </h1>
   
 
@@ -259,10 +270,14 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/消息服务/">消息服务</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JMS/">JMS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中间件/">中间件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/消息服务/">消息服务</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -272,113 +287,68 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>　　Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。现在项目需要搭载集群服务器，故采用Nginx反向代理负载均衡来实现。安装环境CentOS 7.2，安装Nginx版本1.10.1。</p>
-<a id="more"></a>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1、安装必备工具：</p>
-<pre><code>$ yum -y install gcc gcc-c++ autoconf automake
-$ yum -y install zlib zlib-devel openssl openssl-devel pcre-devel
-</code></pre><p>说明：<br>pcre: 用来作地址重写的功能。<br>zlib：nginx 的gzip模块,传输数据打包，省流量（但消耗资源）。<br>openssl：提供ssl加密协议。</p>
-<p>2、新建一个系统级用户组和匿名用户，以及下面编译时使用。</p>
-<pre><code>$ sudo groupadd -r nginx
-$ sudo useradd -s /sbin/nologin -g nginx -r nginx-user
-</code></pre><h2 id="下载-amp-解压-amp-编译安装"><a href="#下载-amp-解压-amp-编译安装" class="headerlink" title="下载&amp;解压&amp;编译安装"></a>下载&amp;解压&amp;编译安装</h2><p>1、下载Nginx，下载最新版本查看链接：<a href="http://nginx.org/en/download.html" target="_blank" rel="external">http://nginx.org/en/download.html</a></p>
-<pre><code>$ cd /usr/local
-$ wget -c http://nginx.org/download/nginx-1.10.1.tar.gz
-</code></pre><p>2、解压</p>
-<pre><code>$ tar -zxvf nginx-1.9.2.tar.gz
-</code></pre><p>3、编译</p>
-<pre><code>$ cd nginx-1.9.2/
-
-$ ./configure \
---prefix=/etc/nginx \
---sbin-path=/usr/sbin/nginx \
---conf-path=/etc/nginx/nginx.conf \
---error-log-path=/var/log/nginx/error.log \
---http-log-path=/var/log/nginx/access.log \
---pid-path=/var/run/nginx.pid \
---lock-path=/var/run/nginx.lock \
---http-client-body-temp-path=/var/cache/nginx/client_temp \
---http-proxy-temp-path=/var/cache/nginx/proxy_temp \
---http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
---http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
---http-scgi-temp-path=/var/cache/nginx/scgi_temp \
---user=nginx \--group=nginx \
---with-http_ssl_module \
---with-http_realip_module \
---with-http_addition_module \
---with-http_sub_module \
---with-http_dav_module \
---with-http_flv_module \
---with-http_mp4_module \
---with-http_gunzip_module \
---with-http_gzip_static_module \
---with-http_random_index_module \
---with-http_secure_link_module \
---with-http_stub_status_module \
---with-http_auth_request_module \
---with-mail \
---with-mail_ssl_module \
---with-file-aio \
---with-ipv6 \
---with-http_spdy_module \
---with-cc-opt=&apos;-O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic&apos;
-</code></pre><p>其中 <code>--with-http_spdy_module \</code>在1.10.1版本中可能不需要。<br>上面的参数的作用可以通过<code>--help</code>来查看。</p>
-<pre><code>$ ./configure --help
-</code></pre><p>编译日志：</p>
-<blockquote>
-<p>checking for OS</p>
+        <h3 id="一、消息队列概述"><a href="#一、消息队列概述" class="headerlink" title="一、消息队列概述"></a>一、消息队列概述</h3><p>消息队列中间件是分布式系统中重要的组件，主要解决应用耦合，异步消息，流量削锋等问题。实现高性能，高可用，可伸缩和最终一致性架构。是大型分布式系统不可缺少的中间件。<br>目前在生产环境，使用较多的消息队列有ActiveMQ，RabbitMQ，ZeroMQ，Kafka，MetaMQ，RocketMQ等。<br><a id="more"></a></p>
+<h3 id="二、消息队列应用场景"><a href="#二、消息队列应用场景" class="headerlink" title="二、消息队列应用场景"></a>二、消息队列应用场景</h3><p>以下介绍消息队列在实际应用中常用的使用场景。异步处理，应用解耦，流量削锋和消息通讯四个场景。</p>
+<h4 id="2-1-异步处理"><a href="#2-1-异步处理" class="headerlink" title="2.1 异步处理"></a>2.1 异步处理</h4><p>场景说明：用户注册后，需要发注册邮件和注册短信。传统的做法有两种1.串行的方式；2.并行方式。</p>
+<p>（1）串行方式：将注册信息写入数据库成功后，发送注册邮件，再发送注册短信。以上三个任务全部完成后，返回给客户端。<br><img src="http://i.imgur.com/opUoeL3.png" alt=""></p>
+<p>（2）并行方式：将注册信息写入数据库成功后，发送注册邮件的同时，发送注册短信。以上三个任务完成后，返回给客户端。与串行的差别是，并行的方式可以提高处理的时间。<br><img src="http://i.imgur.com/yo0jvuq.png" alt=""></p>
+<p>假设三个业务节点每个使用50毫秒钟，不考虑网络等其他开销，则串行方式的时间是150毫秒，并行的时间可能是100毫秒。</p>
+<p>因为CPU在单位时间内处理的请求数是一定的，假设CPU1秒内吞吐量是100次。则串行方式1秒内CPU可处理的请求量是7次（1000/150）。并行方式处理的请求量是10次（1000/100）。</p>
+<p>小结：如以上案例描述，传统的方式系统的性能（并发量，吞吐量，响应时间）会有瓶颈。如何解决这个问题呢？</p>
+<p>引入消息队列，将不是必须的业务逻辑，异步处理。改造后的架构如下：<br><img src="http://i.imgur.com/z2L0QPD.png" alt=""></p>
+<h2 id="2-2应用解耦"><a href="#2-2应用解耦" class="headerlink" title="2.2应用解耦"></a>2.2应用解耦</h2><p>场景说明：用户下单后，订单系统需要通知库存系统。传统的做法是，订单系统调用库存系统的接口。如下图：<br><img src="http://i.imgur.com/RCmzICK.png" alt=""></p>
+<p>传统模式的缺点：</p>
+<p>1）  假如库存系统无法访问，则订单减库存将失败，从而导致订单失败；</p>
+<p>2）  订单系统与库存系统耦合；</p>
+<p>如何解决以上问题呢？引入应用消息队列后的方案，如下图：<br><img src="http://i.imgur.com/wtgjLL0.png" alt=""></p>
 <ul>
-<li>Linux 3.10.0-229.4.2.el7.x86_64 x86_64<br>checking for C compiler … found</li>
-<li>using GNU C compiler</li>
-<li>gcc version: 4.8.3 20140911 (Red Hat 4.8.3-9) (GCC)<br>checking for gcc -pipe switch … found<br>checking for gcc builtin atomic operations … found<br>checking for C99 variadic macros … found<br>checking for gcc variadic macros … found<br>checking for unistd.h … found<br>checking for inttypes.h … found<br>checking for limits.h … found<br>checking for sys/filio.h … not found<br>checking for sys/param.h … found<br>checking for sys/mount.h … found<br>checking for sys/statvfs.h … found<br>checking for crypt.h … found<br>checking for Linux specific features<br>checking for epoll … found<br>checking for EPOLLRDHUP … found<br>checking for O_PATH … found<br>checking for sendfile() … found<br>checking for sendfile64() … found<br>checking for sys/prctl.h … found<br>checking for prctl(PR_SET_DUMPABLE) … found<br>checking for sched_setaffinity() … found<br>checking for crypt_r() … found<br>checking for sys/vfs.h … found<br>checking for poll() … found<br>checking for /dev/poll … not found<br>checking for kqueue … not found<br>checking for crypt() … not found<br>checking for crypt() in libcrypt … found<br>checking for F_READAHEAD … not found<br>checking for posix_fadvise() … found<br>checking for O_DIRECT … found<br>checking for F_NOCACHE … not found<br>checking for directio() … not found<br>checking for statfs() … found<br>checking for statvfs() … found<br>checking for dlopen() … not found<br>checking for dlopen() in libdl … found<br>checking for sched_yield() … found<br>checking for SO_SETFIB … not found<br>checking for SO_REUSEPORT … found<br>checking for SO_ACCEPTFILTER … not found<br>checking for TCP_DEFER_ACCEPT … found<br>checking for TCP_KEEPIDLE … found<br>checking for TCP_FASTOPEN … not found<br>checking for TCP_INFO … found<br>checking for accept4() … found<br>checking for eventfd() … found<br>checking for int size … 4 bytes<br>checking for long size … 8 bytes<br>checking for long long size … 8 bytes<br>checking for void * size … 8 bytes<br>checking for uint64_t … found<br>checking for sig_atomic_t … found<br>checking for sig_atomic_t size … 4 bytes<br>checking for socklen_t … found<br>checking for in_addr_t … found<br>checking for in_port_t … found<br>checking for rlim_t … found<br>checking for uintptr_t … uintptr_t found<br>checking for system byte ordering … little endian<br>checking for size_t size … 8 bytes<br>checking for off_t size … 8 bytes<br>checking for time_t size … 8 bytes<br>checking for setproctitle() … not found<br>checking for pread() … found<br>checking for pwrite() … found<br>checking for sys_nerr … found<br>checking for localtime_r() … found<br>checking for posix_memalign() … found<br>checking for memalign() … found<br>checking for mmap(MAP_ANON|MAP_SHARED) … found<br>checking for mmap(“/dev/zero”, MAP_SHARED) … found<br>checking for System V shared memory … found<br>checking for POSIX semaphores … not found<br>checking for POSIX semaphores in libpthread … found<br>checking for struct msghdr.msg_control … found<br>checking for ioctl(FIONBIO) … found<br>checking for struct tm.tm_gmtoff … found<br>checking for struct dirent.d_namlen … not found<br>checking for struct dirent.d_type … found<br>checking for sysconf(_SC_NPROCESSORS_ONLN) … found<br>checking for openat(), fstatat() … found<br>checking for getaddrinfo() … found<br>checking for PCRE library … found<br>checking for PCRE JIT support … found<br>checking for OpenSSL library … found<br>checking for zlib library … found<br>creating objs/Makefile</li>
+<li>订单系统：用户下单后，订单系统完成持久化处理，将消息写入消息队列，返回用户订单下单成功。</li>
+<li>库存系统：订阅下单的消息，采用拉/推的方式，获取下单信息，库存系统根据下单信息，进行库存操作。</li>
+<li>假如：在下单时库存系统不能正常使用。也不影响正常下单，因为下单后，订单系统写入消息队列就不再关心其他的后续操作了。实现订单系统与库存系统的应用解耦。</li>
 </ul>
-<p>Configuration summary</p>
+<h2 id="2-3-流量削锋"><a href="#2-3-流量削锋" class="headerlink" title="2.3 流量削锋"></a>2.3 流量削锋</h2><p>流量削锋也是消息队列中的常用场景，一般在秒杀或团抢活动中使用广泛。<br>应用场景：秒杀活动，一般会因为流量过大，导致流量暴增，应用挂掉。为解决这个问题，一般需要在应用前端加入消息队列。  </p>
+<ol>
+<li>可以控制活动的人数；  </li>
+<li>可以缓解短时间内高流量压垮应用。  </li>
+</ol>
+<p><img src="http://i.imgur.com/Z0RWVtD.png" alt=""></p>
+<ol>
+<li>应用的请求，服务器接收后，首先写入消息队列。加入消息队列长度超过最大数量，则直接抛弃用户请求或跳转到错误页面；  </li>
+<li>秒杀业务根据消息队列中的请求信息，再做后续处理。</li>
+</ol>
+<h2 id="2-4日志处理"><a href="#2-4日志处理" class="headerlink" title="2.4日志处理"></a>2.4日志处理</h2><p>日志处理是指将消息队列用在日志处理中，比如Kafka的应用，解决大量日志传输的问题。架构简化如下：<br><img src="http://i.imgur.com/cKUSVlf.png" alt=""></p>
 <ul>
-<li>using system PCRE library</li>
-<li>using system OpenSSL library</li>
-<li>md5: using OpenSSL library</li>
-<li>sha1: using OpenSSL library</li>
-<li>using system zlib library</li>
+<li>日志采集客户端，负责日志数据采集，定时写受写入Kafka队列；  </li>
+<li>Kafka消息队列，负责日志数据的接收，存储和转发；  </li>
+<li>日志处理应用：订阅并消费kafka队列中的日志数据；  </li>
 </ul>
-<p>  nginx path prefix: “/usr”<br>  nginx binary file: “/usr/sbin/nginx”<br>  nginx configuration prefix: “/etc/nginx”<br>  nginx configuration file: “/etc/nginx/nginx.conf”<br>  nginx pid file: “/var/run/nginx/nginx.pid”<br>  nginx error log file: “/var/log/nginx/error.log”<br>  nginx http access log file: “/var/log/nginx/http.log”<br>  nginx http client request body temporary files: “/var/tmp/nginx/client”<br>  nginx http proxy temporary files: “/var/tmp/nginx/proxy”<br>  nginx http fastcgi temporary files: “/var/tmp/nginx/fcgi”<br>  nginx http uwsgi temporary files: “uwsgi_temp”<br>  nginx http scgi temporary files: “scgi_temp”</p>
-</blockquote>
-<p>4、安装</p>
-<pre><code>$ make &amp;&amp; make install
-</code></pre><p>5、启动</p>
-<pre><code>$ nginx -c /etc/nginx/nginx.conf
-</code></pre><p>如果提示缺什么包，直接用yum安装</p>
-<pre><code>$ yum install xxxxx
-</code></pre><p>如果提示：</p>
-<blockquote>
-<p>nginx: [emerg] mkdir() “/var/tmp/nginx/client_temp” failed (2: No such file or directory)</p>
-</blockquote>
-<p>则用管理员去mkdir 创建文件夹后再启动。</p>
-<pre><code>$ mkdir -p /var/tmp/nginx/client_temp
-</code></pre><h2 id="相关指令"><a href="#相关指令" class="headerlink" title="相关指令"></a>相关指令</h2><p>1、查看Nginx的安装目录：</p>
-<pre><code>$ whereis nginx
-</code></pre><p>2、检查配置文件是否正确：</p>
-<pre><code>$ cd /etc/nginx
-$ nginx -t
-</code></pre><p>3、启动：</p>
-<pre><code>$ nginx -c /etc/nginx/nginx.conf
-</code></pre><p>4、重启：</p>
-<pre><code>$ cd /etc/nginx
-$ nginx -s reload
-</code></pre><p>5、停止服务器：</p>
-<pre><code>$ ps -ef | grep nginx
-$kill -9 [pid] [pid2]
-</code></pre><p><img src="http://i.imgur.com/sOQR5tu.jpg" alt="停止服务器"></p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>如果安装Nginx前的准备工作没有新建系统级用户组和匿名用户，启动Nginx时会出现如下情况：</p>
-<blockquote>
-<p>nginx: [emerg] getpwnam(“nginx”) failed</p>
-</blockquote>
-<p>解决方法：</p>
-<pre><code>$useradd -r -M nginx
-</code></pre><p>解决方法其他参考链接：</p>
+<p>以下是新浪kafka日志处理应用案例：<br><img src="http://i.imgur.com/s84gF9P.png" alt=""></p>
+<p>(1)Kafka：接收用户日志的消息队列。</p>
+<p>(2)Logstash：做日志解析，统一成JSON输出给Elasticsearch。</p>
+<p>(3)Elasticsearch：实时日志分析服务的核心技术，一个schemaless，实时的数据存储服务，通过         index组织数据，兼具强大的搜索和统计功能。</p>
+<p>(4)Kibana：基于Elasticsearch的数据可视化组件，超强的数据可视化能力是众多公司选择ELK stack的重要原因。</p>
+<h2 id="2-5消息通讯"><a href="#2-5消息通讯" class="headerlink" title="2.5消息通讯"></a>2.5消息通讯</h2><p>消息通讯是指，消息队列一般都内置了高效的通信机制，因此也可以用在纯的消息通讯。比如实现点对点消息队列，或者聊天室等。</p>
+<p>点对点通讯：<br><img src="http://i.imgur.com/k2YXK6r.png" alt=""></p>
+<p>客户端A和客户端B使用同一队列，进行消息通讯。<br>聊天室通讯：<br><img src="http://i.imgur.com/Vi3Punv.png" alt=""></p>
+<p>客户端A，客户端B，客户端N订阅同一主题，进行消息发布和接收。实现类似聊天室效果。</p>
+<p>以上实际是消息队列的两种消息模式，点对点或发布订阅模式。模型为示意图，供参考。</p>
+<h3 id="三、消息中间件示例"><a href="#三、消息中间件示例" class="headerlink" title="三、消息中间件示例"></a>三、消息中间件示例</h3><h2 id="3-1-电商系统"><a href="#3-1-电商系统" class="headerlink" title="3.1 电商系统"></a>3.1 电商系统</h2><p><img src="http://i.imgur.com/XJiPchf.jpg" alt=""></p>
+<p>消息队列采用高可用，可持久化的消息中间件。比如Active MQ，Rabbit MQ，Rocket Mq。  </p>
+<ol>
+<li>应用将主干逻辑处理完成后，写入消息队列。消息发送是否成功可以开启消息的确认模式。（消息队列返回消息接收成功状态后，应用再返回，这样保障消息的完整性）  </li>
+<li>扩展流程（发短信，配送处理）订阅队列消息。采用推或拉的方式获取消息并处理。  </li>
+<li>消息将应用解耦的同时，带来了数据一致性问题，可以采用最终一致性方式解决。比如主数据写入数据库，扩展应用根据消息队列，并结合数据库方式实现基于消息队列的后续处理。</li>
+</ol>
+<h2 id="3-2-日志收集系统"><a href="#3-2-日志收集系统" class="headerlink" title="3.2 日志收集系统"></a>3.2 日志收集系统</h2><p><img src="http://i.imgur.com/ASUst1F.jpg" alt=""></p>
+<p>分为Zookeeper注册中心，日志收集客户端，Kafka集群和Storm集群（OtherApp）四部分组成。</p>
 <ul>
-<li><a href="https://my.oschina.net/u/1036767/blog/210443" target="_blank" rel="external">https://my.oschina.net/u/1036767/blog/210443</a></li>
-<li><a href="http://blog.csdn.net/joeyon1985/article/details/46422715" target="_blank" rel="external">http://blog.csdn.net/joeyon1985/article/details/46422715</a></li>
+<li>Zookeeper注册中心，提出负载均衡和地址查找服务；  </li>
+<li>日志收集客户端，用于采集应用系统的日志，并将数据推送到kafka队列；  </li>
+<li>Kafka集群：接收，路由，存储，转发等消息处理；  </li>
+<li>Storm集群：与OtherApp处于同一级别，采用拉的方式消费队列中的数据；</li>
 </ul>
+<hr>
+<p>对消息服务的认识，都来自网络上的认识和学习，如果你发现本文有任何的错误或疑问，还请指正，感谢！！</p>
 
       
     </div>
@@ -387,13 +357,13 @@ $kill -9 [pid] [pid2]
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/24/在Linux中安装Nginx-1.10.1/">在Linux中安装Nginx-1.10.1</a></p>
+        <p><span>本文标题:</span><a href="/2016/07/28/初识中间件之消息服务/">初识中间件之消息服务</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
-        <p><span>发布时间:</span>2016年08月24日 - 16时26分</p>
-        <!-- <p><span>最后更新:</span>2016年09月25日 - 19时47分</p> -->
+        <p><span>发布时间:</span>2016年07月28日 - 17时23分</p>
+        <!-- <p><span>最后更新:</span>2016年10月26日 - 17时57分</p> -->
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/24/在Linux中安装Nginx-1.10.1/" title="在Linux中安装Nginx-1.10.1">http://shinejstar.github.io/2016/08/24/在Linux中安装Nginx-1.10.1/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/24/在Linux中安装Nginx-1.10.1/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/07/28/初识中间件之消息服务/" title="初识中间件之消息服务">http://shinejstar.github.io/2016/07/28/初识中间件之消息服务/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/07/28/初识中间件之消息服务/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -406,18 +376,18 @@ $kill -9 [pid] [pid2]
 
 <nav id="article-nav">
   
-    <a href="/2016/08/25/在Linux中安装Redis-3.2.3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/12/Nginx系列-基础功能配置/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          在Linux中安装Redis-3.2.3
+          Nginx系列-基础功能配置
         
       </div>
     </a>
   
   
-    <a href="/2016/08/22/在Linux中安装与配置Tomcat-8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在Linux中安装与配置Tomcat-8</div>
+    <a href="/2016/07/12/排序算法-冒泡排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序算法-冒泡排序</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -428,7 +398,7 @@ $kill -9 [pid] [pid2]
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载-amp-解压-amp-编译安装"><span class="toc-number">2.</span> <span class="toc-text">下载&解压&编译安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关指令"><span class="toc-number">3.</span> <span class="toc-text">相关指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、消息队列概述"><span class="toc-number">1.</span> <span class="toc-text">一、消息队列概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、消息队列应用场景"><span class="toc-number">2.</span> <span class="toc-text">二、消息队列应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-异步处理"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 异步处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2应用解耦"><span class="toc-number"></span> <span class="toc-text">2.2应用解耦</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-流量削锋"><span class="toc-number"></span> <span class="toc-text">2.3 流量削锋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4日志处理"><span class="toc-number"></span> <span class="toc-text">2.4日志处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5消息通讯"><span class="toc-number"></span> <span class="toc-text">2.5消息通讯</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三、消息中间件示例"><span class="toc-number">1.</span> <span class="toc-text">三、消息中间件示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-电商系统"><span class="toc-number"></span> <span class="toc-text">3.1 电商系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-日志收集系统"><span class="toc-number"></span> <span class="toc-text">3.2 日志收集系统</span></a>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -476,7 +446,7 @@ $kill -9 [pid] [pid2]
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/08/24/在Linux中安装Nginx-1.10.1/" data-title="在Linux中安装Nginx-1.10.1" data-url="http://shinejstar.github.io/2016/08/24/在Linux中安装Nginx-1.10.1/"></div>
+    <div class="ds-thread" data-thread-key="2016/07/28/初识中间件之消息服务/" data-title="初识中间件之消息服务" data-url="http://shinejstar.github.io/2016/07/28/初识中间件之消息服务/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -499,13 +469,13 @@ $kill -9 [pid] [pid2]
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/25/在Linux中安装Redis-3.2.3/" title="上一篇: 在Linux中安装Redis-3.2.3">
+            <a href="/2016/08/12/Nginx系列-基础功能配置/" title="上一篇: Nginx系列-基础功能配置">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/08/22/在Linux中安装与配置Tomcat-8/" title="下一篇: 在Linux中安装与配置Tomcat-8">
+            <a href="/2016/07/12/排序算法-冒泡排序/" title="下一篇: 排序算法-冒泡排序">
                 <i class="fa fa-angle-right"></i>
             </a>
         
