@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>排序算法-插入排序 | JStar&#39;s Blog</title>
+  <title>sql之数据不存在情况下才插入数据 | JStar&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="插入排序基本原理如下：对于给定的一组记录，初始时假设第一个记录自成一个有序序列，其余记录为无序序列。接着从第二个记录开始，按照记录的大小依次将当前处理的记录插入到其之前的有序序列中，直至最后一个记录插入到有序序列中为止。">
+  <meta name="description" content="有些情况下，如果数据存在，则不作数据插入，如果数据不存在，才做数据插入。但是在insert语句中是不能带where关键字的，那又要一条sql来做判断和插入，就需要借用DUAL来处理了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法-插入排序">
-<meta property="og:url" content="http://shinejstar.github.io/2016/07/25/排序算法-插入排序/index.html">
+<meta property="og:title" content="sql之数据不存在情况下才插入数据">
+<meta property="og:url" content="http://shinejstar.github.io/2016/11/23/sql之数据不存在情况下才插入数据/index.html">
 <meta property="og:site_name" content="JStar's Blog">
-<meta property="og:description" content="插入排序基本原理如下：对于给定的一组记录，初始时假设第一个记录自成一个有序序列，其余记录为无序序列。接着从第二个记录开始，按照记录的大小依次将当前处理的记录插入到其之前的有序序列中，直至最后一个记录插入到有序序列中为止。">
-<meta property="og:updated_time" content="2017-01-15T07:23:37.413Z">
+<meta property="og:description" content="有些情况下，如果数据存在，则不作数据插入，如果数据不存在，才做数据插入。但是在insert语句中是不能带where关键字的，那又要一条sql来做判断和插入，就需要借用DUAL来处理了。">
+<meta property="og:updated_time" content="2017-01-15T10:37:31.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法-插入排序">
-<meta name="twitter:description" content="插入排序基本原理如下：对于给定的一组记录，初始时假设第一个记录自成一个有序序列，其余记录为无序序列。接着从第二个记录开始，按照记录的大小依次将当前处理的记录插入到其之前的有序序列中，直至最后一个记录插入到有序序列中为止。">
+<meta name="twitter:title" content="sql之数据不存在情况下才插入数据">
+<meta name="twitter:description" content="有些情况下，如果数据存在，则不作数据插入，如果数据不存在，才做数据插入。但是在insert语句中是不能带where关键字的，那又要一条sql来做判断和插入，就需要借用DUAL来处理了。">
   
     <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
   
@@ -232,11 +232,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-排序算法-插入排序" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-sql之数据不存在情况下才插入数据" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/25/排序算法-插入排序/" class="article-date">
-      <time datetime="2016-07-25T10:47:00.000Z" itemprop="datePublished">2016-07-25</time>
+      <a href="/2016/11/23/sql之数据不存在情况下才插入数据/" class="article-date">
+      <time datetime="2016-11-23T11:01:10.000Z" itemprop="datePublished">2016-11-23</time>
 </a>
     </div>
   
@@ -249,7 +249,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      排序算法-插入排序
+      sql之数据不存在情况下才插入数据
     </h1>
   
 
@@ -257,10 +257,14 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序/">排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -270,41 +274,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>　　插入排序基本原理如下：对于给定的一组记录，初始时假设第一个记录自成一个有序序列，其余记录为无序序列。接着从第二个记录开始，按照记录的大小依次将当前处理的记录插入到其之前的有序序列中，直至最后一个记录插入到有序序列中为止。</p>
+        <p>　　有些情况下，如果数据存在，则不作数据插入，如果数据不存在，才做数据插入。但是在insert语句中是不能带where关键字的，那又要一条sql来做判断和插入，就需要借用DUAL来处理了。</p>
 <a id="more"></a>
-<pre><code>public class Sort {
-
-    private static void sort2(int[] a) {
-        for(int i = 1; i &lt; a.length; ++i) {
-            int temp = a[i], j = i;
-            while(j &gt;= 1 &amp;&amp; a[j - 1] &gt; temp) {
-                a[j] = a[j - 1];
-                --j;
-            }
-            a[j] = temp;
-        }
-    }
-
-
-    public static void main(String[] args) {
-        int[] a = {36, 27, 48, 12, 25, 65, 43, 57};
-        sort2(a);
-        print(a);
-    }
-
-    private static void print(int[] a) {
-        System.out.print(&quot;从小到大插入排序：&quot;);
-        for(int i : a)
-            System.out.print(i + &quot; &quot;);
-        System.out.println();
-    }
-
-}
-</code></pre><p>打印结果：</p>
-<blockquote>
-<p>从小到大插入排序：12 25 27 36 43 48 57 65 </p>
-</blockquote>
-
+<p>　　<br>　　用最原始的方法就是先    </p>
+<pre><code>select * from user where name = &apos;lwx&apos;;
+</code></pre><p>判断是否有name为lwx的user，如果不存在，则再执行插入</p>
+<pre><code>insert into user(id,name) values(&apos;5&apos;,&apos;lwx&apos;);
+</code></pre><hr>
+<p>此方法需要执行2条sql语句，繁琐且效率低，为了改进此方法，遂采用如下方法：</p>
+<pre><code>insert into user(id,name) select &apos;5&apos;,&apos;lwx&apos; from DUAL 
+where not exists (select 1 from user where name = &apos;lwx&apos;)
+</code></pre>
       
     </div>
     
@@ -312,13 +292,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/07/25/排序算法-插入排序/">排序算法-插入排序</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/23/sql之数据不存在情况下才插入数据/">sql之数据不存在情况下才插入数据</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
-        <p><span>发布时间:</span>2016年07月25日 - 18时47分</p>
-        <!-- <p><span>最后更新:</span>2017年01月15日 - 15时23分</p> -->
+        <p><span>发布时间:</span>2016年11月23日 - 19时01分</p>
+        <!-- <p><span>最后更新:</span>2017年01月15日 - 18时37分</p> -->
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/07/25/排序算法-插入排序/" title="排序算法-插入排序">http://shinejstar.github.io/2016/07/25/排序算法-插入排序/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/07/25/排序算法-插入排序/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/23/sql之数据不存在情况下才插入数据/" title="sql之数据不存在情况下才插入数据">http://shinejstar.github.io/2016/11/23/sql之数据不存在情况下才插入数据/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/11/23/sql之数据不存在情况下才插入数据/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -331,18 +311,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2016/07/28/初识中间件之消息服务/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          初识中间件之消息服务
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/07/20/排序算法-快速排序（java多种实现）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">排序算法-快速排序（java多种实现）</div>
+    <a href="/2016/11/16/springmvc controller的参数绑定注解详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringMVC controller的参数绑定注解详解</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -401,7 +372,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/07/25/排序算法-插入排序/" data-title="排序算法-插入排序" data-url="http://shinejstar.github.io/2016/07/25/排序算法-插入排序/"></div>
+    <div class="ds-thread" data-thread-key="2016/11/23/sql之数据不存在情况下才插入数据/" data-title="sql之数据不存在情况下才插入数据" data-url="http://shinejstar.github.io/2016/11/23/sql之数据不存在情况下才插入数据/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -424,13 +395,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/28/初识中间件之消息服务/" title="上一篇: 初识中间件之消息服务">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/07/20/排序算法-快速排序（java多种实现）/" title="下一篇: 排序算法-快速排序（java多种实现）">
+            <a href="/2016/11/16/springmvc controller的参数绑定注解详解/" title="下一篇: SpringMVC controller的参数绑定注解详解">
                 <i class="fa fa-angle-right"></i>
             </a>
         
