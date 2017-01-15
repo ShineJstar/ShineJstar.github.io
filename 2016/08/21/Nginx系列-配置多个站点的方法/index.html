@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Nginx系列-配置多个站点的方法 | JStar&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx系列-配置多个站点的方法">
+<meta property="og:url" content="http://shinejstar.github.io/2016/08/21/Nginx系列-配置多个站点的方法/index.html">
+<meta property="og:site_name" content="JStar's Blog">
+<meta property="og:description" content="当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。">
+<meta property="og:updated_time" content="2017-01-15T07:31:01.758Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nginx系列-配置多个站点的方法">
+<meta name="twitter:description" content="当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。">
+  
+    <link rel="alternative" href="/atom.xml" title="JStar&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">JStar</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">请不要与梦想渐行渐远！</p>
+        
+        
+            <form>
+                <!-- <input type="text" class="st-default-search-input search" id="search" placeholder=" Search..."> -->
+				<input type="text" class="st-default-search-input search" id="search" placeholder=" Search..." autocomplete="off" autocorrect="off" autocapitalize="off">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/">作品展示</a></li>
+                        
+                            <li><a href="/">留言打卡</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=nqquqKynpqyord7v77D98fM" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/ShineJstar" title="github">github</a>
+                            
+                                <a class="fl QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=406298263&site=qq&menu=yes" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat" target="_blank" href="/Wechat" title="wechat">wechat</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CentOS/" style="font-size: 14px;">CentOS</a> <a href="/tags/Excel/" style="font-size: 12px;">Excel</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/JMS/" style="font-size: 10px;">JMS</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 16px;">Nginx</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/拦截器/" style="font-size: 10px;">拦截器</a> <a href="/tags/排序/" style="font-size: 14px;">排序</a> <a href="/tags/消息服务/" style="font-size: 10px;">消息服务</a> <a href="/tags/算法/" style="font-size: 14px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://MOxFIVE.github.io/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.vsay.cn/">DoubleV</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ccwebsite.com/">兮兮</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.dandyweng.com/">翁天信</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.plqblog.com/views/index.php">潘利强</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.hankin.cn/">hankin</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.waydrow.com/">waydrow</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">JStar</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">JStar</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">请不要与梦想渐行渐远！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/">作品展示</a></li>
+                
+                    <li><a href="/">留言打卡</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=nqquqKynpqyord7v77D98fM" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/ShineJstar" title="github">github</a>
+                    
+                        <a class="QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=406298263&site=qq&menu=yes" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="/Wechat" title="wechat">wechat</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Nginx系列-配置多个站点的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/21/Nginx系列-配置多个站点的方法/" class="article-date">
+      <time datetime="2016-08-21T08:03:43.000Z" itemprop="datePublished">2016-08-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nginx系列-配置多个站点的方法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>　　当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就教大家如何用nginx配置多个站点的方法。</p>
+<a id="more"></a>
+<p>这里以配置2个站点（2个域名）为例，n 个站点可以相应增加调整，假设：</p>
+<p>　　IP地址: 127.0.0.1<br>　　域名1 www.bnuz163.com tomcat端口为80 静态文件放在 /www/bnuz<br>　　域名2 moto.bnuz163.com tomcat端口为8081 静态文件放在 /www/moto</p>
+<p>配置 nginx virtual hosting 的基本思路和步骤如下：
+　　</p>
+<ol>
+<li>把2个站点 www.bnuz163.com, moto.bnuz163.com 放到 nginx 可以访问的目录 /www/</li>
+<li>给每个站点分别创建一个 nginx 配置文件 www.conf，moto.conf, 并把配置文件放到 /nginx/vhosts/</li>
+<li>然后在 /conf/nginx.conf 里面加一句 include 把步骤2创建的配置文件全部包含进来</li>
+<li>重启 nginx</li>
+</ol>
+<h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><p>1、在 /nginx 下创建 <code>vhosts</code> 目录</p>
+<pre><code>mkdir vhosts
+</code></pre><p>2、在 /nginx/vhosts/ 里创建一个名字为 <code>www.conf</code> 的文件，把以下内容拷进去</p>
+<pre><code>#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
+upstream www.bnuz163.com{
+    server server1.bnuz163.com:8080 max_fails=1 fail_timeout=1s;
+    server server2.bnuz163.com:8080 max_fails=1 fail_timeout=1s;
+}
+
+server {
+    listen       80;
+    server_name  bunz163.com www.bnuz163.com;
+    root   ./html/bnuz/;
+
+    #access_log  logs/host.access.log  main;
+    #重定向
+    if ($host = &apos;bnuz163.com&apos;){
+       rewrite ^/(.*)$ http://www.bnuz163.com/$1 permanent;
+    }
+
+    location ~^/druid/ {
+        proxy_pass http://www.bnuz163.com;
+        proxy_connect_timeout 2s;
+
+    }
+
+    location / {
+        index  index.html;
+        #如果直接域名访问就显示上一句index配置的静态首页
+        if ( !-e $request_filename ) {
+            proxy_pass http://www.bnuz163.com;
+        }
+
+        proxy_connect_timeout 2s;
+        proxy_redirect off; 
+        proxy_set_header Host $host; #这一句至关重要
+        proxy_set_header X-Real-IP $remote_addr; 
+        #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;             
+    }
+
+    location ~* \.(htm|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma|svg|js|css)$ {
+        root   ./www/bnuz/;
+        expires 1h;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   ./html/bnuz/;
+    }
+}
+</code></pre><p>3、在 /nginx/vhosts/ 里创建一个名字为 <code>moto.conf</code> 的文件，把以下内容拷进去</p>
+<pre><code>upstream moto.bnuz163.com{
+    server moto.bnuz163.com:8081 max_fails=1 fail_timeout=1s;
+}
+
+server {
+    listen             80;
+    server_name        moto.bnuz163.com;
+    location / {
+        proxy_pass http://moto.bnuz163.com;
+        proxy_connect_timeout 2s;
+
+        proxy_redirect off; 
+        proxy_set_header Host $host; #这一句至关重要
+        proxy_set_header X-Real-IP $remote_addr; 
+        #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location ~* \.(htm|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma|svg|js|css)$ {
+        root   ./www/moto/;
+        expires 1h;
+    }
+}
+</code></pre><p>4、打开 /nginx/conf/nginx.conf 文件，在相应位置加入 <code>include</code> 把以上2个文件包含进来</p>
+<pre><code>worker_processes  1;
+
+error_log  logs/error.log;
+error_log  logs/error.log  notice;
+error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+events {
+    worker_connections  10000;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #默认编码
+    charset utf-8;
+    tcp_nopush on; #防止网络阻塞
+    tcp_nodelay on; #防止网络阻塞
+
+    #keepalive_timeout  0;
+    keepalive_timeout  60;
+
+    #开启zip网页压缩
+    gzip  on;
+    gzip_min_length 1k;
+    gzip_buffers 4 8k;
+    gzip_http_version 1.1;
+    gzip_types text/plain application/x-javascript text/css application/xml;
+
+
+    #秒抢小助手配置
+    include ./vhosts/www.conf;
+    # 摩托车商城配置
+    include ./vhosts/moto.conf;
+
+}
+</code></pre><p>5、判断配置文件是否正确，如果正确就重启nginx</p>
+<p><code>nginx -t</code><br>提示：</p>
+<blockquote>
+<p>the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok<br>configuration file /usr/local/nginx/conf/nginx.conf test is successful</p>
+</blockquote>
+<p>测试成功, 重启nginx,输入命令：<br><code>nginx -s reload</code><br>重启之后访问<a href="http://www.bnuz163.com" target="_blank" rel="external">www.bnuz163.com</a>和<a href="http://moto.bnuz163.com" target="_blank" rel="external">moto.bnuz163.com</a>就是两个不同的站点啦！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/08/21/Nginx系列-配置多个站点的方法/">Nginx系列-配置多个站点的方法</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
+        <p><span>发布时间:</span>2016年08月21日 - 16时03分</p>
+        <!-- <p><span>最后更新:</span>2017年01月15日 - 15时31分</p> -->
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/21/Nginx系列-配置多个站点的方法/" title="Nginx系列-配置多个站点的方法">http://shinejstar.github.io/2016/08/21/Nginx系列-配置多个站点的方法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/21/Nginx系列-配置多个站点的方法/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/08/25/在Linux中安装Redis-3.2.3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          在Linux中安装Redis-3.2.3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/15/Nginx系列-301重定向设置的两种方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nginx系列-301重定向设置的两种方法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#具体过程"><span class="toc-number">1.</span> <span class="toc-text">具体过程</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/08/21/Nginx系列-配置多个站点的方法/" data-title="Nginx系列-配置多个站点的方法" data-url="http://shinejstar.github.io/2016/08/21/Nginx系列-配置多个站点的方法/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shinejstar"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/08/25/在Linux中安装Redis-3.2.3/" title="上一篇: 在Linux中安装Redis-3.2.3">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/08/15/Nginx系列-301重定向设置的两种方法/" title="下一篇: Nginx系列-301重定向设置的两种方法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/14/理解和正确使用Java中的断言(assert)/">理解和正确使用Java中的断言(assert)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/Java读写Excel文件之poi技术/">Java读写Excel文件之poi技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/Java读写Excel文件之jxl技术/">Java读写Excel文件之jxl技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/11/在Linux中安装与配置JDK-8/">在Linux中安装与配置JDK-8</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/25/在Linux中安装Nginx-1.10.1/">在Linux中安装Nginx-1.10.1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/在Linux中安装与配置Tomcat-8/">在Linux中安装与配置Tomcat-8</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/Nginx系列-使用Nginx中遇过的坑/">Nginx系列-使用Nginx中遇过的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/在Linux中安装Redis-3.2.3/">在Linux中安装Redis-3.2.3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/21/Nginx系列-配置多个站点的方法/">Nginx系列-配置多个站点的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/Nginx系列-301重定向设置的两种方法/">Nginx系列-301重定向设置的两种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/Nginx系列-基础功能配置/">Nginx系列-基础功能配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/07/SpringMVC拦截器（资源和权限管理）/">SpringMVC拦截器（资源和权限管理）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/28/初识中间件之消息服务/">初识中间件之消息服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/排序算法-插入排序/">排序算法-插入排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/排序算法-冒泡排序/">排序算法-冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/03/排序算法-希尔排序/">排序算法-希尔排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/23/排序算法-选择排序/">排序算法-选择排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/设计模式-代理模式（Proxy）/">设计模式-代理模式（Proxy）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/设计模式-观察者模式（Observer）/">设计模式-观察者模式（Observer）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/16/设计模式-工厂方法模式（Factory Method）/">设计模式-工厂方法模式（Factory Method）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/13/设计模式-抽象工厂模式（Abstract Factory）/">设计模式-抽象工厂模式（Abstract Factory）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/12/设计模式-单例模式的八种写法（Singleton）/">设计模式-单例模式的八种写法（Singleton）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/设计模式-适配器模式（Adapter）/">设计模式-适配器模式（Adapter）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/Java常用设计模式介绍/">Java常用设计模式介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 JStar
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+</body>
+</html>
