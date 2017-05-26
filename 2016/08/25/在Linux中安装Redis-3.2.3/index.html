@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://i.imgur.com/fGT1SST.jpg">
 <meta property="og:image" content="http://i.imgur.com/2Eq6AXD.jpg">
 <meta property="og:image" content="http://i.imgur.com/lCNysyW.jpg">
-<meta property="og:updated_time" content="2016-09-25T11:47:05.159Z">
+<meta property="og:updated_time" content="2017-05-24T03:03:31.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Linux中安装Redis-3.2.3">
 <meta name="twitter:description" content="Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。项目需要用来存储经常变化的持久化数据和共享集群服务器中的web session。现在在CentOS 7.2中安装Redis-3.2.3。">
@@ -334,7 +334,7 @@ chmod -v 755 /usr/lib/libtcl8.6.so
 <li>port：监听的端口号</li>
 <li>timeout：请求超时时间</li>
 <li>loglevel：log信息级别</li>
-<li>logfile：log文件位置</li>
+<li>logfile：log文件位置（绝对路径）</li>
 <li>databases：开启数据库的数量</li>
 <li>save <em> </em>：保存快照的频率，第一个<em>表示多长时间（秒级），第三个</em>表示执行多少次写操作。在一定时间内执行一定数量的写操作时，自动保存快照。可设置多个条件。</li>
 <li>rdbcompression：是否使用压缩</li>
@@ -370,9 +370,9 @@ chmod -v 755 /usr/lib/libtcl8.6.so
 <pre><code># redis-server /usr/local/redis-3.2.3/conf/redis-6379.conf 
 </code></pre><p>2、关闭Redis<br>　　四种关闭操作，其中shutdown默认持久化后退出，shutdown save为显式持久化后退出，shutdown nosave为不持久化退出：</p>
 <pre><code># redis-cli shutdown  //默认关闭host：127.0.0.1 端口：6379的Redis
-# redis-cli -h 127.0.0.1 shutdown //关闭host：127.0.0.1 默认端口：6379的Redis
-# redis-cli -p 6378 shutdown  //关闭默认host：127.0.0.1 端口：6378的Redis
-# redis-cli -h 127.0.0.1 -p 6377 shutdown //关闭host：127.0。0.1，端口：6377 的Redis
+# redis-cli -h 127.0.0.1 -a 123456 shutdown //关闭host：127.0.0.1 默认端口：6379 密码：123456 的Redis
+# redis-cli -p 6378 -a 123456 shutdown  //关闭默认host：127.0.0.1 端口：6378的Redis 密码：123456 的Redis
+# redis-cli -h 127.0.0.1 -p 6379 -a 123456 shutdown //关闭host：127.0。0.1，端口：6379 的Redis 密码：123456 的Redis
 </code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>1、通过客户端命令redis-cli访问Redis：</p>
 <pre><code># redis-cli  
 # redis&gt; set name jstar
@@ -383,7 +383,7 @@ OK
 <pre><code># redis-benchmark -l  
 </code></pre><p>这个测试会一直进行下去，直到你按Ctrl+C。</p>
 <h2 id="redis-cli常用命令"><a href="#redis-cli常用命令" class="headerlink" title="redis-cli常用命令"></a>redis-cli常用命令</h2><p>1、客户端命令redis-cli访问Redis</p>
-<pre><code># redis-cli -h 127.0.0.1 -p 6379
+<pre><code># redis-cli -h 127.0.0.1 -p 6379 -a 123456
 </code></pre><p><img src="http://i.imgur.com/SExzuL4.jpg" alt="redis-cli"></p>
 <p>2、添加key为a，value为b的字符串</p>
 <pre><code>redis&gt; set a b 
@@ -414,7 +414,7 @@ OK
         <p><span>本文标题:</span><a href="/2016/08/25/在Linux中安装Redis-3.2.3/">在Linux中安装Redis-3.2.3</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
         <p><span>发布时间:</span>2016年08月25日 - 09时22分</p>
-        <!-- <p><span>最后更新:</span>2016年09月25日 - 19时47分</p> -->
+        <!-- <p><span>最后更新:</span>2017年05月24日 - 11时03分</p> -->
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/08/25/在Linux中安装Redis-3.2.3/" title="在Linux中安装Redis-3.2.3">http://shinejstar.github.io/2016/08/25/在Linux中安装Redis-3.2.3/</a>
             <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/25/在Linux中安装Redis-3.2.3/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
