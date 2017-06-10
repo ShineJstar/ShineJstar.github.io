@@ -19,7 +19,9 @@
 <meta property="og:image" content="http://i.imgur.com/fGT1SST.jpg">
 <meta property="og:image" content="http://i.imgur.com/2Eq6AXD.jpg">
 <meta property="og:image" content="http://i.imgur.com/lCNysyW.jpg">
-<meta property="og:updated_time" content="2017-05-24T03:03:31.348Z">
+<meta property="og:image" content="http://i.imgur.com/m03P4mK.jpg">
+<meta property="og:image" content="http://i.imgur.com/V60RaLt.jpg">
+<meta property="og:updated_time" content="2017-06-05T06:57:03.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Linux中安装Redis-3.2.3">
 <meta name="twitter:description" content="Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。项目需要用来存储经常变化的持久化数据和共享集群服务器中的web session。现在在CentOS 7.2中安装Redis-3.2.3。">
@@ -398,11 +400,17 @@ OK
 <pre><code>redis&gt; mget a i k 
 </code></pre><p><img src="http://i.imgur.com/fGT1SST.jpg" alt="redis-cli mget"></p>
 <p>6、查看redis保存着多少个键值对</p>
-<pre><code>redis-cli dbsize
+<pre><code>redis&gt; dbsize
 </code></pre><p><img src="http://i.imgur.com/2Eq6AXD.jpg" alt="redis-cli dbsize"></p>
 <p>7、清空所有Redis保存的键值对</p>
 <pre><code>redis&gt; flushall
 </code></pre><p><img src="http://i.imgur.com/lCNysyW.jpg" alt="redis-cli flushall"></p>
+<p>8、查看当前的redis连接数</p>
+<pre><code>redis&gt; info clients
+</code></pre><p><img src="http://i.imgur.com/m03P4mK.jpg" alt="info clients"></p>
+<p>9、查询redis允许的最大连接数</p>
+<pre><code>redis&gt; config get maxclients
+</code></pre><p><img src="http://i.imgur.com/V60RaLt.jpg" alt="config get maxclients"></p>
 
       
     </div>
@@ -414,7 +422,7 @@ OK
         <p><span>本文标题:</span><a href="/2016/08/25/在Linux中安装Redis-3.2.3/">在Linux中安装Redis-3.2.3</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JStar 的个人博客">JStar</a></p>
         <p><span>发布时间:</span>2016年08月25日 - 09时22分</p>
-        <!-- <p><span>最后更新:</span>2017年05月24日 - 11时03分</p> -->
+        <!-- <p><span>最后更新:</span>2017年06月05日 - 14时57分</p> -->
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/08/25/在Linux中安装Redis-3.2.3/" title="在Linux中安装Redis-3.2.3">http://shinejstar.github.io/2016/08/25/在Linux中安装Redis-3.2.3/</a>
             <span class="copy-path" data-clipboard-text="原文: http://shinejstar.github.io/2016/08/25/在Linux中安装Redis-3.2.3/　　作者: JStar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
